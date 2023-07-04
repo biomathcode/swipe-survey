@@ -1,0 +1,29 @@
+// question
+id: String
+content: String
+createdBy: User/Auth
+createdAt: dateTime
+CollectionId: String
+
+// SurveyID// Collection
+id: String
+question: Array
+createAt: DateTime
+title: String
+
+
+// Response 
+id: String
+questionId: String
+value: String
+byUser: String
+
+
+// User
+id: String
+name: String
+email: String
+Surveys: []Survey
+
+
+

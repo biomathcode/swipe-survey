@@ -9,3 +9,37 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Survey {
+  id        String     @unique
+  question  Question[]
+  createAt  DateTime
+  title     String
+  createdBy User?      @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
+model Question {
+  id        String   @unique
+  content   String
+  createdBy User     @relation(fields: [userId], references: [id])
+  createdAt DateTime
+  Survey    Survey?  @relation(fields: [surveyId], references: [id])
+  surveyId  String?
+  userId    String
+}
+
+model Response {
+  id         String @unique
+  questionId String
+  value      String
+  byUser     String
+}
+
+model User {
+  id       String     @unique
+  name     String
+  email    String
+  Question Question[]
+  Survey   Survey[]
+}

@@ -1,0 +1,15 @@
+
+Create Survey UserFlow
+Login =>
+Create Survey with a title => 
+Add Question => 
+Publish => 
+Get link to collect response =>  
+Get Response
+
+
+See Survey Response : or analytics
+
+Login => 
+Get all Survey, published or draft
+See the Response 

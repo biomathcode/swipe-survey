@@ -1,3 +1,7 @@
+[ ] Migrate CodeSandbox prototype to component
+[ ] Add light and Dark theme 
+[ ] 
+
 [ ] Add Authentication
 [ ] Add Client facing Swipe Survey
 [ ] Create Survey Builder

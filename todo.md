@@ -1,11 +1,11 @@
-[ ] Migrate CodeSandbox prototype to component
-[ ] Add light and Dark theme 
+[X] Migrate CodeSandbox prototype to component
+[] Add light and Dark theme 
 [ ] 
 
 [ ] Add Authentication
-[ ] Add Client facing Swipe Survey
+[X] Add Client facing Swipe Survey
 [ ] Create Survey Builder
-[ ] Create Response and analytics
+[X] Create Response and analytics
 
 [ ] Create Library so that people can integrate library on their page or iframe or embed
 [ ] Try to Add AI for decision making chart

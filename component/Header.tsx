@@ -1,8 +1,20 @@
-// Header
+"use client";
 
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 function Header() {
+  const { data: session } = useSession();
+
+  if (session) {
+    return (
+      <>
+        Signed in
+        <br />
+        <button onClick={() => signOut()}>Sign out</button>
+      </>
+    );
+  }
   return (
     <nav
       style={{
@@ -24,7 +36,7 @@ function Header() {
         &gt;&gt;Swipe Survey
       </Link>
       <div className="flex flex-row " style={{ gap: "10px" }}>
-        <Link href="/login">Login</Link>
+        <button onClick={() => signIn()}>Login</button>
         <Link href="/solution">Solutions</Link>
         <Link href="/product">Products</Link>
       </div>

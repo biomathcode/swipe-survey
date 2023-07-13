@@ -1,10 +1,10 @@
-import Header from "../../component/Header";
+import Header from "../component/Header";
 
 function App() {
   return (
-    <div>
+    <div className="mt-10">
       <Header />
-      <h1>hellow</h1>
+      <div className="bg-neutral-10 w-32 h-32 text-white ">BOx</div>
     </div>
   );
 }

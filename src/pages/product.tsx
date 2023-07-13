@@ -1,4 +1,4 @@
-import Header from "../../component/Header";
+import Header from "../component/Header";
 import "../app/globals.css";
 
 function Product() {

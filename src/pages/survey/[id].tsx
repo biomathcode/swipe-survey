@@ -3,7 +3,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { GetServerSideProps } from "next";
-import Swiper from "../../../component/Swiper";
+import Swiper from "../../component/Swiper";
 
 function SurveyView(props: any) {
   useEffect(() => {}, []);

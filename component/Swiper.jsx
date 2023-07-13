@@ -13,6 +13,7 @@ const Wrapper = styled(Stack)`
   box-sizing: border-box;
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.75);
   margin: 10px;
+  min-height: 300px;
 `;
 
 const Item = styled.div`
@@ -30,23 +31,19 @@ const Item = styled.div`
   border-radius: 8px;
 `;
 
-const items = [
-  {
-    id: 1,
-    question: "    Was our app helpful to you?",
-  },
-  {
-    id: 2,
-    question: " Would you like more features related to customization?",
-  },
-];
-
-export default function Swiper() {
+export default function Swiper({ data }) {
   const [border, setBorder] = useState("#585555");
   const [traffic, setTraffic] = useState(["red", "yellow", "green"]);
 
+  const items = data.question.map((e) => ({
+    id: e.id,
+    question: e.content,
+  }));
+
+  console.log("this is data", items);
+
   return (
-    <div className="App">
+    <main className=" min-h-screen flex-col items-center justify-between p-24 bg-white text-black ">
       <Traffics traffic={traffic} />
       <Wrapper
         border={border}
@@ -54,7 +51,7 @@ export default function Swiper() {
         setTraffic={setTraffic}
         onVote={(item, vote) => console.log(item.props, vote)}
       >
-        {items.map((el) => (
+        {items?.map((el) => (
           <Item
             borderColor={border}
             data-value={el.id}
@@ -65,6 +62,6 @@ export default function Swiper() {
           </Item>
         ))}
       </Wrapper>
-    </div>
+    </main>
   );
 }

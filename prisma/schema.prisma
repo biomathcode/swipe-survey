@@ -9,7 +9,8 @@ datasource db {
 
 model Survey {
   id        String     @id @default(cuid())
-  createAt  DateTime
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
   title     String
   createdBy User?      @relation(fields: [userId], references: [id])
   userId    String?
@@ -19,7 +20,8 @@ model Survey {
 model Question {
   id        String     @id @default(cuid())
   content   String
-  createdAt DateTime
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
   surveyId  String?
   userId    String
   Response  Response[]

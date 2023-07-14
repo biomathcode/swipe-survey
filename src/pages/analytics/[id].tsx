@@ -11,7 +11,7 @@ function Analytics(props) {
   );
 }
 
-import AnalyticsCard from "@/component/AnalyticsCard";
+import AnalyticsCard from "@/component/Card";
 // You should use getServerSideProps when:
 // - Only if you need to pre-render a page whose data must be fetched at request time
 import { GetServerSideProps } from "next";

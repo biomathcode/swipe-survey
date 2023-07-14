@@ -44,6 +44,8 @@ export const Stack = ({
       <Frame {...props}>
         {stack.map((item, index) => {
           let isTop = index === stack.length - 1;
+
+          console.log("this is the stack data", item);
           return (
             <Card
               setTraffic={setTraffic}

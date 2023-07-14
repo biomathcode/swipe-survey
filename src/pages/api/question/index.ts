@@ -7,9 +7,14 @@ import prisma from "../../../../lib/prisma";
 async function question(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
     try {
-      const allquestion = await prisma.question.findMany({});
+      const allquestion = await prisma.question.findMany({
+        include: {
+          Response: true,
+        },
+      });
       res.status(200).json({
         data: allquestion,
+
         msg: "ALL the Question",
       });
     } catch (err: any) {

@@ -17,7 +17,7 @@ function Header() {
   }
   return (
     <nav
-      className="bg-neutral-400"
+      className="bg-neutral-900"
       style={{
         position: "fixed",
         top: "0px",
@@ -33,7 +33,7 @@ function Header() {
         alignItems: "center",
       }}
     >
-      <Link href="/" className=" underline">
+      <Link href="/" className=" ">
         &gt;&gt;Swipe Survey
       </Link>
       <div className="flex flex-row gap-10">

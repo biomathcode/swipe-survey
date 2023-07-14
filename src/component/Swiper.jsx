@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Stack } from "./component/stack";
 import styled from "styled-components";
 import { Traffics } from "./component/Traffic";
+import { useSession } from "next-auth/react";
 
 const Wrapper = styled(Stack)`
   background: #363333;
@@ -40,7 +41,9 @@ export default function Swiper({ data }) {
     question: e.content,
   }));
 
-  console.log("this is data", items);
+  console.log("this is data", data);
+
+  const { data: session } = useSession();
 
   return (
     <main className=" min-h-screen flex-col items-center justify-between p-24 bg-white text-black ">
@@ -49,7 +52,27 @@ export default function Swiper({ data }) {
         border={border}
         setBorder={setBorder}
         setTraffic={setTraffic}
-        onVote={(item, vote) => console.log(item.props, vote)}
+        onVote={async (item, vote) => {
+          console.log("current data", item, vote);
+          const body = {
+            questionId: item.props["data-value"],
+            userId: data.userId,
+            value: String(vote),
+          };
+          const createResponse = await fetch(
+            "http://localhost:3000/api/response",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(body),
+            }
+          );
+
+          const res = await createResponse.json();
+          console.log(res);
+        }}
       >
         {items?.map((el) => (
           <Item

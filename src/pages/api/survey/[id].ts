@@ -18,7 +18,11 @@ export default async function Survey(
         id: id,
       },
       include: {
-        question: true,
+        question: {
+          include: {
+            Response: true,
+          },
+        },
       },
     });
     return res.status(200).json({ data: survey, msg: "Unique survey" });

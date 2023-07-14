@@ -24,17 +24,14 @@ async function survey(req: NextApiRequest, res: NextApiResponse) {
   }
 
   if (req.method === "POST") {
-    const { title, surveyId, userId } = req.body;
+    const { title, email } = req.body;
+
+    console.log(email);
 
     const createSurvey = await prisma.survey.create({
       data: {
         title: title,
-        createAt: new Date(),
-        createdBy: {
-          connect: {
-            id: userId,
-          },
-        },
+        email: email,
       },
     });
 

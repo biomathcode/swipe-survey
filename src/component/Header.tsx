@@ -7,6 +7,8 @@ import Link from "next/link";
 function Header() {
   const { data: session } = useSession();
 
+  console.log(session);
+
   return (
     <nav
       className="bg-neutral-900"

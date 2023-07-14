@@ -1,4 +1,5 @@
 // Create Survey page
+import CreateSurvey from "@/component/CreateSurvey";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 
@@ -16,6 +17,7 @@ function Surveys(props: any) {
       ) : (
         <div>
           <p>No Survey Found </p>
+          <CreateSurvey />
 
           <Link href="/edit">Create Survey</Link>
         </div>

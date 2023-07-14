@@ -1,5 +1,8 @@
+import prisma from "lib/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export default function (req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ name: "Example" });
+export default async function (req: NextApiRequest, res: NextApiResponse) {
+  const data = await prisma.user.findMany({});
+
+  res.status(200).json({ data: data });
 }

@@ -43,7 +43,7 @@ function Header() {
           <div className="flex gap-3 items-center ">
             <img
               alt="profile_image"
-              src={session.user?.image}
+              src={session.user?.image || ""}
               className="p-1 rounded w-10 h-10"
             />
             {session.user?.name}{" "}

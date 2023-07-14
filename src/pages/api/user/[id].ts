@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../../lib/prisma";
-import { data } from "autoprefixer";
 
 export default async function User(req: NextApiRequest, res: NextApiResponse) {
   const id = req.query.id as string;

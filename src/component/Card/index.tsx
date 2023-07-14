@@ -1,15 +1,15 @@
-function AnalyticsCard({ data }) {
+function AnalyticsCard({ data }: { data: any }) {
   return (
     <div className="text-black">
       <h1>{data.title}</h1>
       <div className="flex flex-col gap-10 align-center">
-        {data.question.map((el, i) => {
+        {data.question.map((el: any, i: any) => {
           const totalResponse = el.Response.length;
           const totalYes = el.Response.filter(
-            (el) => el.value.trim() === "true"
+            (el: any) => el.value.trim() === "true"
           ).length;
           const totalNo = el.Response.filter(
-            (el) => el.value === "false"
+            (el: any) => el.value === "false"
           ).length;
 
           return (

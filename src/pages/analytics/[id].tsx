@@ -1,7 +1,7 @@
 // analytics
 // Get the Response on all the questions
 
-function Analytics(props) {
+function Analytics(props: any) {
   console.log(props);
 
   return (

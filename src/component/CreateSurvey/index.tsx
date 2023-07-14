@@ -24,7 +24,7 @@ function CreateSurvey() {
 
     const create = await axios.post("http://localhost:3000/api/survey", {
       title: title,
-      email: session.user.email,
+      email: session.user?.email,
     });
     console.log(create);
 

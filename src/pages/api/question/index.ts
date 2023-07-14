@@ -26,14 +26,14 @@ async function question(req: NextApiRequest, res: NextApiResponse) {
   }
 
   if (req.method === "POST") {
-    const { content, surveyId, userId } = req.body;
+    const { content, surveyId, email } = req.body;
 
     const createQuestion = await prisma.question.create({
       data: {
         content: content,
         createdAt: new Date(),
         surveyId: surveyId,
-        userId: userId,
+        email: email,
       },
     });
 

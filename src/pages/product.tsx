@@ -1,5 +1,4 @@
 import Header from "../component/Header";
-import "../app/globals.css";
 
 function Product() {
   return (

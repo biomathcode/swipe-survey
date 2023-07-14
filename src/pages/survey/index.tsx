@@ -2,15 +2,24 @@
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 
+// TODO: REPLACE LINK TO DIALOG TO CREATE SURVEY
 function Surveys(props: any) {
   console.log(props.data);
   return (
-    <div>
-      {props.data.map((el: any) => (
-        <Link key={el.id} href={"/survey/" + el.id}>
-          {el.id}
-        </Link>
-      ))}
+    <div className="mt-20">
+      {props.data.length > 0 ? (
+        props.data.map((el: any) => (
+          <Link key={el.id} href={"/survey/" + el.id}>
+            {el.id}
+          </Link>
+        ))
+      ) : (
+        <div>
+          <p>No Survey Found </p>
+
+          <Link href="/edit">Create Survey</Link>
+        </div>
+      )}
     </div>
   );
 }

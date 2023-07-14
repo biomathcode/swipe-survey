@@ -15,9 +15,9 @@ function App() {
 
       <div
         style={{
-          width: "90vh",
+          width: "60vw",
         }}
-        className=" h-96 bg-neutral-800"
+        className=" h-96 bg-neutral-800 rounded-lg"
       ></div>
       <button
         className="px-5 py-3 bg-neutral-900 text-white font-bold text-lg "
@@ -25,6 +25,10 @@ function App() {
       >
         Get Started
       </button>
+      <div>
+        Swipe Survey helps you create polarized surveys, removes outliers, and
+        take decisions without data analysis.
+      </div>
     </div>
   );
 }

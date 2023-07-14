@@ -24,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/component/component/card.jsx", "lib/prisma.js", "lib/prisma.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/component/component/card.jsx", "lib/prisma.js", "lib/prisma.js", "src/pages/api/auth/[...nextauth].js"],
   "exclude": ["node_modules"]
 }

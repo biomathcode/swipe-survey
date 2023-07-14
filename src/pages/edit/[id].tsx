@@ -3,10 +3,12 @@
 // Survey Builder
 
 import QuestionForm from "@/component/QuestionForm";
+import { useState } from "react";
 import { GetServerSideProps } from "next";
 
-function edit(props: any) {
-  console.log(props);
+function Edit(props: any) {
+  console.log("this", props);
+  const [data, setData] = useState([...props.data.question]);
   return (
     <div
       style={{ width: "100vw", height: "calc(100vh - 50px" }}
@@ -17,7 +19,16 @@ function edit(props: any) {
           className="text-6xl border-b-2 border-gray-600"
           defaultValue={props.data.title}
         />
-        <QuestionForm />
+        <QuestionForm surveyid={props.data.id} data={data} setData={setData} />
+
+        {data.map((el, i) => (
+          <div key={i} className="flex gap-10 my-10">
+            <div>{i + 1 + ". " + el?.content}</div>
+            <button className="px-2 py-1 bg-neutral-800 text-white rounded">
+              Edit
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -42,4 +53,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-export default edit;
+export default Edit;

@@ -6,7 +6,6 @@ import { GetServerSideProps } from "next";
 import Swiper from "../../component/Swiper";
 
 function SurveyView(props: any) {
-  useEffect(() => {}, []);
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <Swiper data={props.data} />

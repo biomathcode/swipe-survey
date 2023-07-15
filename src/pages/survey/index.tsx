@@ -3,6 +3,7 @@ import CreateSurvey from "@/component/CreateSurvey";
 import {
   ExternalLinkIcon,
   Pencil1Icon,
+  PieChartIcon,
   ViewGridIcon,
 } from "@radix-ui/react-icons";
 import { formatDistance } from "date-fns";
@@ -57,9 +58,23 @@ function Surveys(props: any) {
                 <Pencil1Icon />
                 Edit
               </button>
-              <button className="bg-neutral-900 text-white px-5 rounded py-2 flex gap-2 items-center justify-center">
+              <button
+                onClick={() => {
+                  router.push("/survey/" + el.id);
+                }}
+                className="bg-neutral-900 text-white px-5 rounded py-2 flex gap-2 items-center justify-center"
+              >
                 <ViewGridIcon />
                 Preview
+              </button>
+              <button
+                onClick={() => {
+                  router.push("/analytics/" + el.id);
+                }}
+                className="bg-neutral-900 text-white px-5 rounded py-2 flex gap-2 items-center justify-center"
+              >
+                <PieChartIcon />
+                Analytics
               </button>
             </div>
           </div>

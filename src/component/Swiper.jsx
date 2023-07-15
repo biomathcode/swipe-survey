@@ -56,7 +56,7 @@ export default function Swiper({ data }) {
           console.log("current data", item, vote);
           const body = {
             questionId: item.props["data-value"],
-            userId: data.userId,
+            userId: "sharma.pratik2016@gmail.com",
             value: String(vote),
           };
           const createResponse = await fetch(

@@ -1,11 +1,20 @@
-// analytics
-// Get the Response on all the questions
+// TODO: Add Outliers
+// TODO: Add Chart
+// TODO: Aggreability of user
+// TODO: Similar response by users
+// TODO: See Response by User
 
 function Analytics(props: any) {
   console.log(props);
 
   return (
     <div className="m-20 p-20">
+      <div>See Response by user email</div>
+      <div>
+        Remove Outliers <i>Users which response yes or no to all the answers</i>
+        <input type="checkbox" />
+      </div>
+
       <AnalyticsCard data={props.data} />
     </div>
   );

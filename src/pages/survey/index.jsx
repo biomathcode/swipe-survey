@@ -12,10 +12,11 @@ import { GetServerSideProps } from "next";
 import { getToken } from "next-auth/jwt";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { authOptions } from "../api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
 
 // TODO: REPLACE LINK TO DIALOG TO CREATE SURVEY
-function Surveys(props: any) {
-  console.log(props.data);
+function Surveys(props) {
   const router = useRouter();
   return (
     <div
@@ -25,7 +26,7 @@ function Surveys(props: any) {
       <h1 className="font-bold text-2xl">Survey</h1>
       <hr style={{ width: "100vw" }} />
       {props.data.length > 0 ? (
-        props.data.map((el: any) => (
+        props.data.map((el) => (
           <div
             key={el.id}
             style={{ minWidth: "500px" }}
@@ -96,18 +97,30 @@ function Surveys(props: any) {
 // You should use getServerSideProps when:
 // - Only if you need to pre-render a page whose data must be fetched at request time
 
-export const getServerSideProps: GetServerSideProps = async (ctx: any) => {
-  const res = await axios.get("http://localhost:3000/api/survey");
+export const getServerSideProps = async (ctx) => {
+  const session = await getServerSession(ctx.req, ctx.res, authOptions);
+
+  if (session) {
+    const res = await axios.get(
+      "http://localhost:3000/api/email/" + session.user?.email + "/survey"
+    );
+    const data = await res.data;
+
+    return {
+      props: {
+        data: data.data,
+      },
+    };
+  } else {
+    return {
+      props: {
+        data: [],
+        msg: "Not Authenticated",
+      },
+    };
+  }
 
   // your fetch function here
-
-  const data = await res.data;
-
-  return {
-    props: {
-      data: data.data,
-    },
-  };
 };
 
 export default Surveys;

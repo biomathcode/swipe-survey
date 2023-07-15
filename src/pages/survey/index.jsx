@@ -21,7 +21,7 @@ function Surveys(props) {
   return (
     <div
       style={{ width: "100vh", height: "calc(100vw -  40px)" }}
-      className="flex flex-col justify-start gap-10 items-center mt-20 min-w-full min-h-full"
+      className="flex flex-col justify-start gap-2 items-center mt-20 min-w-full min-h-full"
     >
       <h1 className="font-bold text-2xl">Survey</h1>
       <hr style={{ width: "100vw" }} />

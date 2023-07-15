@@ -14,7 +14,7 @@ function Header() {
         position: "fixed",
         top: "0px",
         width: "100vw",
-        height: "50px",
+        height: "60px",
         padding: "20px",
         borderBottom: "1px solid #eee",
 
@@ -42,7 +42,7 @@ function Header() {
             <img
               alt="profile_image"
               src={session.user?.image || ""}
-              className="p-1 rounded w-10 h-10"
+              className="p-1 rounded-xl w-10 h-10"
             />
             {session.user?.name}{" "}
           </div>

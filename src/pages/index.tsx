@@ -1,5 +1,3 @@
-import Seo from "@/component/SEO";
-import Header from "../component/Header";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 
@@ -7,7 +5,6 @@ function App() {
   const { data: session } = useSession();
   return (
     <div className="min-w-full flex flex-col gap-10 justify-center content-center items-center ">
-      <Seo />
       <div className="mt-20 text-6xl min-w-full flex text-center justify-center">
         <h1 className="	">
           Surveys which leads to <br />{" "}

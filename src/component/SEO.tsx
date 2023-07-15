@@ -158,11 +158,6 @@ export default function Seo(props: SeoProps) {
 
 const favicons: Array<React.ComponentPropsWithoutRef<"link">> = [
   {
-    rel: "apple-touch-icon",
-    sizes: "180x180",
-    href: "/favicon/apple-touch-icon.png",
-  },
-  {
     rel: "icon",
     type: "image/png",
     sizes: "32x32",

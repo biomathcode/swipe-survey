@@ -6,8 +6,10 @@ import {
   PieChartIcon,
   ViewGridIcon,
 } from "@radix-ui/react-icons";
+import axios from "axios";
 import { formatDistance } from "date-fns";
 import { GetServerSideProps } from "next";
+import { getToken } from "next-auth/jwt";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -94,10 +96,12 @@ function Surveys(props: any) {
 // You should use getServerSideProps when:
 // - Only if you need to pre-render a page whose data must be fetched at request time
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const res = await fetch("http://localhost:3000/api/survey"); // your fetch function here
+export const getServerSideProps: GetServerSideProps = async (ctx: any) => {
+  const res = await axios.get("http://localhost:3000/api/survey");
 
-  const data = await res.json();
+  // your fetch function here
+
+  const data = await res.data;
 
   return {
     props: {

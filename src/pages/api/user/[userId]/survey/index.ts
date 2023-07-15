@@ -2,17 +2,22 @@
 // POST:  Create survey by user
 
 import { NextApiRequest, NextApiResponse } from "next";
-import prisma from "../../../../lib/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]";
+import prisma from "../../../../../../lib/prisma";
 
 // GET all survey
 // Post To create a new survey
 
 async function survey(req: NextApiRequest, res: NextApiResponse) {
+  const userId = req.query.userId as string;
   if (req.method === "GET") {
     try {
-      const allsurvey = await prisma.survey.findMany({});
+      const allsurvey = await prisma.survey.findMany({
+        where: {
+          createdBy: {
+            id: userId,
+          },
+        },
+      });
       return res.status(200).json({
         data: allsurvey,
 

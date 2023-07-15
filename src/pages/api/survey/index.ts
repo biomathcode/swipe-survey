@@ -11,13 +11,13 @@ async function survey(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
     try {
       const allsurvey = await prisma.survey.findMany({});
-      res.status(200).json({
+      return res.status(200).json({
         data: allsurvey,
         msg: "ALL the Survey",
       });
     } catch (err: any) {
       console.error(err);
-      res.status(500).json({
+      return res.status(500).json({
         msg: err.message,
       });
     }
@@ -35,12 +35,12 @@ async function survey(req: NextApiRequest, res: NextApiResponse) {
       },
     });
 
-    res.status(200).json({
+    return res.status(200).json({
       data: createSurvey,
       msg: "ALL the Survey",
     });
   } else {
-    res.status(401).json({
+    return res.status(401).json({
       message: `HTTP method ${req.method} is not supported.`,
     });
   }

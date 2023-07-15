@@ -10,7 +10,7 @@ export default async function Response(
 ) {
   if (req.method === "GET") {
     const getMany = await prisma.response.findMany({});
-    res.status(200).json({ data: getMany, msg: "success" });
+    return res.status(200).json({ data: getMany, msg: "success" });
   }
   if (req.method === "POST") {
     const { questionId, value, userId } = req.body;
@@ -27,7 +27,7 @@ export default async function Response(
       },
     });
 
-    res
+    return res
       .status(200)
       .json({ data: createPost, msg: "Successfully created Response" });
   }

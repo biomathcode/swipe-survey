@@ -12,14 +12,14 @@ async function question(req: NextApiRequest, res: NextApiResponse) {
           Response: true,
         },
       });
-      res.status(200).json({
+      return res.status(200).json({
         data: allquestion,
 
         msg: "ALL the Question",
       });
     } catch (err: any) {
       console.error(err);
-      res.status(500).json({
+      return res.status(500).json({
         msg: err.message,
       });
     }
@@ -37,12 +37,12 @@ async function question(req: NextApiRequest, res: NextApiResponse) {
       },
     });
 
-    res.status(200).json({
+    return res.status(200).json({
       data: createQuestion,
       msg: "ALL the Question",
     });
   } else {
-    res.status(401).json({
+    return res.status(401).json({
       message: `HTTP method ${req.method} is not supported.`,
     });
   }

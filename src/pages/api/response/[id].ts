@@ -19,7 +19,7 @@ export default async function Response(
       },
     });
 
-    res.status(200).json({ data: response, msg: "SuccessFul " });
+    return res.status(200).json({ data: response, msg: "SuccessFul " });
   }
   if (req.method === "PUT") {
     const value = req.body.value;
@@ -32,7 +32,7 @@ export default async function Response(
       },
     });
 
-    res
+    return res
       .status(200)
       .json({ data: response, msg: "SuccessFul Updated Response" });
   }
@@ -43,7 +43,7 @@ export default async function Response(
         id,
       },
     });
-    res
+    return res
       .status(200)
       .json({ data: deleteResponse, msg: "SuccessFul Deleted Response" });
   }

@@ -5,6 +5,7 @@
 import QuestionForm from "@/component/QuestionForm";
 import { useState } from "react";
 import { GetServerSideProps } from "next";
+import EditForm from "@/component/EditForm";
 
 function Edit(props: any) {
   console.log("this", props);
@@ -22,12 +23,7 @@ function Edit(props: any) {
         <QuestionForm surveyid={props.data.id} data={data} setData={setData} />
 
         {data.map((el, i) => (
-          <div key={i} className="flex gap-10 my-10">
-            <div>{i + 1 + ". " + el?.content}</div>
-            <button className="px-2 py-1 bg-neutral-800 text-white rounded">
-              Edit
-            </button>
-          </div>
+          <EditForm i={i} el={el} key={i} />
         ))}
       </div>
     </div>

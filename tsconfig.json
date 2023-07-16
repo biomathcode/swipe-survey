@@ -24,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/component/component/card.jsx", "lib/prisma.js", "lib/prisma.js", "src/pages/api/auth/[...nextauth].js", "src/pages/api/user/[userId]/survey/index.js", "src/pages/api/jwt.js", "src/pages/survey/index.jsx", "src/pages/changelog.mdx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/component/component/card.jsx", "lib/prisma.js", "lib/prisma.js", "src/pages/api/auth/[...nextauth].js", "src/pages/api/user/[userId]/survey/index.js", "src/pages/api/jwt.js", "src/pages/survey/index.jsx", "src/pages/changelog.mdx", "src/pages/playground.jsx"],
   "exclude": ["node_modules"]
 }

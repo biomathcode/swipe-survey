@@ -26,7 +26,14 @@ function Header() {
       }}
     >
       <Link href="/" className=" ">
-        &gt;&gt;Swipe Survey
+        <div className="flex gap-2 items-center content-center">
+          <img
+            alt="swipe survey logo"
+            src="/favicon/android-chrome-192x192.png"
+            className="p-1 rounded-xl w-10 h-10"
+          />
+          <div className="text-lg">SwipeSurvey</div>
+        </div>
       </Link>
       {!session ? (
         <div className="flex flex-row gap-10">

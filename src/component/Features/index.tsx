@@ -8,7 +8,7 @@ const Card = ({ header, description }: CardTypes) => {
     <div
       title="card"
       style={{ maxWidth: "340px" }}
-      className="flex  h-fit p-10 flex-col gap-2 hover:bg-neutral-900 hover:text-white bg-neutral-100 text-neutral-900"
+      className="transition-colors	 flex  h-fit md:p-10 p-4 flex-col gap-2 hover:bg-neutral-900 hover:text-white bg-white text-neutral-900"
     >
       <h2 className="text-2xl">{header}</h2>
       <p>{description}</p>
@@ -29,12 +29,13 @@ function Features() {
         alignContent: "center",
         alignItems: "center",
       }}
+      className="bg-orange-100 md:p-0 p-20"
     >
-      <div className="flex flex-col gap-4 justify-center content-center items-center">
-        <h1 className="text-4xl mb-5">Features</h1>
+      <div className="flex flex-col gap-4 m-2 justify-center content-center items-center">
+        <h1 className="text-4xl m-2 font-semibold">Features</h1>
         <p className="text-lg">Surveys can be simple and more realistic.</p>
       </div>
-      <div className="flex flex-wrap gap-10 flex-col lg:flex-row justify-center  ">
+      <div className="flex flex-wrap md:gap-10 gap-5 flex-col lg:flex-row justify-center max-w-screen-xl  ">
         {[1, 2, 3, 4, 5, 6].map((el) => (
           <Card
             key={el}

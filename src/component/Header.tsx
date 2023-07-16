@@ -1,7 +1,6 @@
 "use client";
 
 import { signIn, signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
 
 function Header() {
@@ -40,6 +39,7 @@ function Header() {
           <button onClick={() => signIn()}>Login</button>
           <Link href="/solution">Solutions</Link>
           <Link href="/product">Products</Link>
+          <Link href="/changes">ChangeLogs</Link>
         </div>
       ) : (
         <div className="flex flex-row items-center gap-10">

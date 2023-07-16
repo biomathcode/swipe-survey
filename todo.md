@@ -10,6 +10,8 @@
 [ ] Improve the Swiper Component 
 [ ] Make the Swiper Component=> Responsive
 [ ] Survey Start Page
+[ ] Add Survey Preview with the Surve Builder Page
+
 
 [ ] Survey End Page
 

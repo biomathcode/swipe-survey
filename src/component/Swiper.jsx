@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 
 import { Stack } from "./component/stack";
@@ -15,6 +13,7 @@ const Wrapper = styled(Stack)`
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.75);
   margin: 10px;
   min-height: 300px;
+  min-width: 500px;
 `;
 
 const Item = styled.div`
@@ -46,8 +45,12 @@ export default function Swiper({ data }) {
   const { data: session } = useSession();
 
   return (
-    <main className=" min-h-screen flex-col items-center justify-between p-24 bg-white text-black ">
+    <main
+      style={{ width: "50vw", minWidth: "500px" }}
+      className=" min-h-screen flex-col items-center justify-between p-24 bg-white text-black "
+    >
       <Traffics traffic={traffic} />
+
       <Wrapper
         border={border}
         setBorder={setBorder}

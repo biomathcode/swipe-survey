@@ -23,7 +23,10 @@ function Surveys(props) {
       style={{ width: "100vh", height: "calc(100vw -  40px)" }}
       className="flex flex-col justify-start gap-2 items-center mt-20 min-w-full min-h-full"
     >
-      <h1 className="font-bold text-2xl">Survey</h1>
+      <div className="flex justify-between gap-20">
+        <h1 className="font-bold text-2xl">Survey</h1>
+        <CreateSurvey />
+      </div>
       <hr style={{ width: "100vw" }} />
       {props.data.length > 0 ? (
         props.data.map((el) => (

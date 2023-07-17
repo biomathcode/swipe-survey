@@ -1,6 +1,6 @@
 //
 import * as Dialog from "@radix-ui/react-dialog";
-import { Cross2Icon } from "@radix-ui/react-icons";
+import { Cross2Icon, PlusCircledIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -28,14 +28,14 @@ function CreateSurvey() {
     });
     console.log(create);
 
-    // router.push("/edit/" + create.data.data.id);
+    router.push("/edit/" + create.data.data.id);
     setLoading(false);
   };
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="text-violet11 shadow-blackA7 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
-          Create Survey
+        <button className="text-violet11 bg-neutral-900 gap-2 text-white hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px]  px-[15px] font-medium leading-none  focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
+          <PlusCircledIcon /> Create Survey
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
@@ -68,9 +68,9 @@ function CreateSurvey() {
             {/* <Dialog.Close asChild> */}
             <button
               onClick={handleCreateSurvey}
-              className="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
+              className="bg-neutral-900 text-white  hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
             >
-              {loading ? <div>Loading...</div> : <div> Save changes</div>}
+              {loading ? <div>Loading...</div> : <div> Create</div>}
             </button>
             {/* </Dialog.Close> */}
           </div>

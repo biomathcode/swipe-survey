@@ -1,3 +1,5 @@
+import data from "./data";
+
 type CardTypes = {
   header: string;
   description: string;
@@ -36,12 +38,8 @@ function Features() {
         <p className="text-lg">Surveys can be simple and more realistic.</p>
       </div>
       <div className="flex flex-wrap md:gap-10 gap-5 flex-col lg:flex-row justify-center max-w-screen-xl  ">
-        {[1, 2, 3, 4, 5, 6].map((el) => (
-          <Card
-            key={el}
-            header="Analytics"
-            description="Get insights of your data, remove outliers and get a proper path to your hypothesis"
-          />
+        {data.map((el) => (
+          <Card key={el.id} header={el.header} description={el.description} />
         ))}
       </div>
     </main>

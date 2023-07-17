@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Stack } from "./component/stack";
 import styled from "styled-components";
@@ -35,12 +35,10 @@ export default function Swiper({ data }) {
   const [border, setBorder] = useState("#585555");
   const [traffic, setTraffic] = useState(["red", "yellow", "green"]);
 
-  const items = data.question.map((e) => ({
+  let items = data.question.map((e) => ({
     id: e.id,
     question: e.content,
   }));
-
-  console.log("this is data", data);
 
   const { data: session } = useSession();
 

@@ -45,6 +45,18 @@ function Edit(props: any) {
           <Swiper data={props.data} />
         </div>
       </div>
+      <div
+        style={{
+          position: "sticky",
+          bottom: "0px",
+          width: "100vw",
+          height: "60px",
+        }}
+        className="bg-neutral-800 text-white flex justify-around content-center items-center "
+      >
+        Navbar
+        <button className="bg-blue-600 px-4 py-2  ">Publish</button>
+      </div>
     </>
   );
 }

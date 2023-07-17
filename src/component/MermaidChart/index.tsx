@@ -47,7 +47,7 @@ export interface MermaidProps {
   name?: any;
 }
 
-export const Mermaid: FC<MermaidProps> = ({ children, style }) => {
+export const Mermaid = ({ children }: {children: any}) => {
   mermaid.initialize(DEFAULT_CONFIG);
 
   useEffect(() => {

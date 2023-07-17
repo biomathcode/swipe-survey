@@ -19,6 +19,9 @@ export default async function Survey(
       },
       include: {
         question: {
+          orderBy: {
+            createdAt: "desc",
+          },
           include: {
             Response: true,
           },

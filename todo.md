@@ -4,10 +4,12 @@
 [X] Create Survey Builder
 [X] Create Response and analytics
 
-
-
-[ ] Create a Client Interface
-[ ] Improve the Swiper Component 
+[ ] Delete Survey
+[ ] Delete Question
+[ ] Improve analytics
+[ ] Add React Query
+[ ] Add Zustand    
+[ ] Improve the Swiper Com
 [ ] Make the Swiper Component=> Responsive
 [ ] Survey Start Page
 [ ] Add Survey Preview with the Surve Builder Page

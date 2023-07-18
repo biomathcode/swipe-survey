@@ -8,23 +8,21 @@ import Swiper from "@/component/Swiper";
 
 function Edit(props: any) {
   console.log("this", props);
-  const [data, setData] = useState([...props.data.question]);
+  const [data, setData] = useState(props.data.question);
 
-  const newData = {
-    question: data.map((el, i) => ({
-      id: i + 1,
-      question: el.content,
-    })),
-  };
-  console.log(newData);
   return (
     <>
       <div className="flex justify-around">
         <div
-          style={{ width: "50vw", height: "calc(100vh - 50px" }}
+          style={{
+            width: "50vw",
+            height: "calc(100vh - 50px",
+            overflow: "scroll",
+            padding: "100px 20px",
+          }}
           className="mt-20 flex justify-center items-center content-center"
         >
-          <div className="flex flex-col min-h-full max-w-lg ">
+          <div className="flex flex-col max-w-lg ">
             <input
               className="text-6xl border-b-2 border-gray-600"
               defaultValue={props.data.title}
@@ -35,14 +33,14 @@ function Edit(props: any) {
               setData={setData}
             />
 
-            {data.map((el, i) => (
+            {data?.map((el: any, i: any) => (
               <EditForm i={i} el={el} key={i} />
             ))}
           </div>
         </div>
         <div>
           <h1 className="text-2xl font-bold text-center">Preview</h1>
-          <Swiper data={props.data} />
+          <Swiper questions={data} />
         </div>
       </div>
       <div
@@ -54,7 +52,7 @@ function Edit(props: any) {
         }}
         className="bg-neutral-800 text-white flex justify-around content-center items-center "
       >
-        Navbar
+        <div></div>
         <button className="bg-blue-600 px-4 py-2  ">Publish</button>
       </div>
     </>
@@ -72,6 +70,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       notFound: true,
     };
   }
+
+  console.log(data.data);
 
   return {
     props: {

@@ -22,7 +22,6 @@ export const Card = ({
   id,
   ...props
 }) => {
-  // motion stuff
   const cardElem = useRef(null);
 
   const x = useMotionValue(0);
@@ -35,7 +34,7 @@ export const Card = ({
   const [velocity, setVelocity] = useState();
 
   let rotateMv = useTransform(x, [-200, 200], [-50, 50]);
-  let opacityMv = useTransform(x, [-200, -150, 0, 150, 200], [0, 1, 1, 1, 0]);
+  let opacityMv = useTransform(x, [-200, -150, 0, 150, 200], [0, 1, 1, 1, 0.5]);
 
   const getVote = (childNode, parentNode) => {
     const childRect = childNode.getBoundingClientRect();
@@ -62,7 +61,7 @@ export const Card = ({
   const flyAway = (min) => {
     setTraffic(["none", "yellow", "none"]);
 
-    setBorder("#585555");
+    setBorder("#eeeeee");
     const flyAwayDistance = (direction) => {
       const parentWidth =
         cardElem.current.parentNode.getBoundingClientRect().width;
@@ -78,12 +77,12 @@ export const Card = ({
         x: flyAwayDistance(direction),
         background: "none",
       });
-      // if (direction === "right") {
-      //   controls.set({ background: "red" });
-      // }
-      // if (direction === "left") {
-      //   controls.set({ background: "green" });
-      // }
+      if (direction === "right") {
+        controls.set({ background: "red" });
+      }
+      if (direction === "left") {
+        controls.set({ background: "green" });
+      }
     }
   };
 
@@ -108,9 +107,11 @@ export const Card = ({
     }
     if (x === 0) {
       setTraffic(["none", "yellow", "none"]);
-      setBorder("#eee");
+      setBorder("#eeeeee");
     }
   }, [x, setBorder, direction, controls, setTraffic]);
+
+  console.log(props, style);
 
   return (
     <StyledCard
@@ -121,10 +122,13 @@ export const Card = ({
       }
       dragElastic={0.64}
       ref={cardElem}
-      style={{ x, opacity: opacityMv, rotate: rotateMv }}
+      style={{
+        x,
+        opacity: opacityMv,
+        rotate: rotateMv,
+      }}
       onDrag={getTrajectory}
       onDragEnd={() => flyAway(500)}
-      whileTap={{ scale: 1.1 }}
       {...props}
     >
       {children}

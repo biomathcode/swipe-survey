@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Stack } from "./component/stack";
 import styled from "styled-components";
@@ -6,18 +6,18 @@ import { Traffics } from "./component/Traffic";
 import { useSession } from "next-auth/react";
 
 const Wrapper = styled(Stack)`
-  background: #363333;
-  border: 4px solid #585555;
+  background: #fff;
+  border: ${(props) => `4px solid ${props.border}`};
+
   border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.25);
   margin: 10px;
   min-height: 300px;
   min-width: 500px;
 `;
 
 const Item = styled.div`
-  background: #f9fafb;
   width: 300px;
   height: 150px;
   display: flex;
@@ -26,21 +26,31 @@ const Item = styled.div`
   font-size: 1.5rem;
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  background: #363333;
-  color: #7b7878;
+  background: #f8f8f8;
+  color: #000000;
   border-radius: 8px;
 `;
 
-export default function Swiper({ data }) {
-  const [border, setBorder] = useState("#585555");
+export default function Swiper({ questions }) {
+  const [border, setBorder] = useState("#f4f4f4");
   const [traffic, setTraffic] = useState(["red", "yellow", "green"]);
 
-  let items = data.question.map((e) => ({
-    id: e.id,
-    question: e.content,
-  }));
+  const [previous, setPrevious] = useState("#f4f4f4");
 
-  const { data: session } = useSession();
+  useEffect(() => {}, [questions]);
+
+  function blink() {
+    const light = setInterval(() => {
+      const data = previous === "#f4f4f4" ? "red" : "white";
+      setPrevious(data);
+    }, 300);
+    setTimeout(() => {
+      clearInterval(light);
+      setPrevious("white");
+    }, 1000);
+  }
+
+  console.log("border previous", previous);
 
   return (
     <main
@@ -53,36 +63,37 @@ export default function Swiper({ data }) {
         border={border}
         setBorder={setBorder}
         setTraffic={setTraffic}
+        blink={blink}
         onVote={async (item, vote) => {
           console.log("current data", item, vote);
-          const body = {
-            questionId: item.props["data-value"],
-            userId: "sharma.pratik2016@gmail.com",
-            value: String(vote),
-          };
-          const createResponse = await fetch(
-            "http://localhost:3000/api/response",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(body),
-            }
-          );
+          // const body = {
+          //   questionId: item.props["data-value"],
+          //   userId: "sharma.pratik2016@gmail.com",
+          //   value: String(vote),
+          // };
+          // const createResponse = await fetch(
+          //   "http://localhost:3000/api/response",
+          //   {
+          //     method: "POST",
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //     },
+          //     body: JSON.stringify(body),
+          //   }
+          // );
 
-          const res = await createResponse.json();
-          console.log(res);
+          // const res = await createResponse.json();
+          // console.log(res);
         }}
       >
-        {items?.map((el) => (
+        {questions?.map((el) => (
           <Item
-            borderColor={border}
+            borderColor={previous}
             data-value={el.id}
             whileTap={{ scale: 1.15 }}
             key={el.id}
           >
-            {el.question}
+            {el.content}
           </Item>
         ))}
       </Wrapper>

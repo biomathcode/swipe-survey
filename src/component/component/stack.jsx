@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, Children } from "react";
+import React, { useState, Children, useEffect } from "react";
 import styled from "styled-components";
 import { Card } from "./card";
 
@@ -19,11 +19,13 @@ export const Stack = ({
   onVote,
   children,
   setBorder,
+  blink,
   ...props
 }) => {
   const [stack, setStack] = useState(Children.toArray(children));
 
   // return new array with last item removed
+
   const pop = (array) => {
     return array.filter((_, index) => {
       return index < array.length - 1;
@@ -37,6 +39,7 @@ export const Stack = ({
 
     // run function from onVote prop, passing the current item and value of vote
     onVote(item, vote);
+    blink();
   };
 
   return (
@@ -45,7 +48,6 @@ export const Stack = ({
         {stack.map((item, index) => {
           let isTop = index === stack.length - 1;
 
-          console.log("this is the stack data", item);
           return (
             <Card
               setTraffic={setTraffic}

@@ -6,12 +6,12 @@ import styled from "styled-components";
 const TrafficLight = styled.div`
   z-index: 2;
   position: relative;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
   display: flex;
   gap: 10px;
-  right: -30px;
-  top: 60px;
-  border: 2px solid #7b7878;
+  right: -15px;
+  top: 50px;
+  border: 4px solid #eeeeee;
   border-radius: 5px;
   padding: 7px;
   width: fit-content;

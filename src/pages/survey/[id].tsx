@@ -7,8 +7,16 @@ import Swiper from "../../component/Swiper";
 
 function SurveyView(props: any) {
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <Swiper data={props.data} />
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        justifyContent: "center",
+        alignContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Swiper questions={props.data.question} />
     </div>
   );
 }

@@ -31,7 +31,7 @@ const Item = styled.div`
   border-radius: 8px;
 `;
 
-export default function Swiper({ questions }) {
+export default function Swiper({ questions, isPreview = true }) {
   const [border, setBorder] = useState("#f4f4f4");
   const [traffic, setTraffic] = useState(["red", "yellow", "green"]);
 
@@ -64,24 +64,26 @@ export default function Swiper({ questions }) {
         blink={blink}
         onVote={async (item, vote) => {
           console.log("current data", item, vote);
-          // const body = {
-          //   questionId: item.props["data-value"],
-          //   userId: "sharma.pratik2016@gmail.com",
-          //   value: String(vote),
-          // };
-          // const createResponse = await fetch(
-          //   "http://localhost:3000/api/response",
-          //   {
-          //     method: "POST",
-          //     headers: {
-          //       "Content-Type": "application/json",
-          //     },
-          //     body: JSON.stringify(body),
-          //   }
-          // );
+          if (!isPreview) {
+            const body = {
+              questionId: item.props["data-value"],
+              userId: "sharma.pratik2016@gmail.com",
+              value: String(vote),
+            };
+            const createResponse = await fetch(
+              "http://localhost:3000/api/response",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+              }
+            );
 
-          // const res = await createResponse.json();
-          // console.log(res);
+            const res = await createResponse.json();
+            console.log(res);
+          }
         }}
       >
         {questions?.map((el) => (

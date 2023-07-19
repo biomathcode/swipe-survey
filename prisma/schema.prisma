@@ -36,8 +36,8 @@ model Response {
   value      String
   byUser     String
   question   Question[]
-  country    String
-  timezone   String
+  country    String?
+  timezone   String?
 }
 
 model Account {

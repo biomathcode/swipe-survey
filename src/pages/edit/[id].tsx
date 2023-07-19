@@ -5,6 +5,9 @@ import { useState } from "react";
 import { GetServerSideProps } from "next";
 import EditForm from "@/component/EditForm";
 import Swiper from "@/component/Swiper";
+import Link from "next/link";
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
+import axios from "axios";
 
 function Preview({ data }: { data: any }) {
   return (
@@ -53,8 +56,14 @@ function Edit(props: any) {
           </div>
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-center">Preview</h1>
-          <Swiper questions={data} />
+          <Link target="_blank" href={"/survey/" + props.data.id}>
+            <div className="flex mt-4 justify-around w-full">
+              <h1 className="text-2xl font-bold text-center">Preview</h1>
+
+              <ExternalLinkIcon />
+            </div>
+          </Link>
+          <Swiper questions={data} isPreview={true} />
         </div>
       </div>
     </>
@@ -63,9 +72,7 @@ function Edit(props: any) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { id } = ctx.query;
-  const res = await fetch("http://localhost:3000/api/survey/" + id); // your fetch function here
-
-  const data = await res.json();
+  const { data } = await axios.get(`http://localhost:3000/api/survey/${id}`); // your fetch function here
 
   if (!data) {
     return {

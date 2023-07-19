@@ -68,12 +68,12 @@ function Surveys(props) {
               </div>
             </Link>
 
-            <div className="flex justify-around">
+            <div className="flex justify-around gap-2">
               <button
                 onClick={() => {
                   router.push("/analytics/" + el.id);
                 }}
-                className="bg-neutral-900 text-white px-5 rounded py-2 flex gap-2 items-center justify-center"
+                className="bg-neutral-900 text-white px-3 text-sm rounded py-2 flex gap-2 items-center justify-center"
               >
                 <PieChartIcon />
                 Analytics
@@ -82,19 +82,10 @@ function Surveys(props) {
                 onClick={() => {
                   router.push("/edit/" + el.id);
                 }}
-                className=" bg-neutral-900 text-white px-5 rounded py-2 flex gap-2 items-center justify-center"
+                className=" bg-neutral-900 text-white px-3 rounded py-2 text-sm flex gap-2 items-center justify-center"
               >
                 <Pencil1Icon />
                 Edit
-              </button>
-              <button
-                onClick={() => {
-                  router.push("/survey/" + el.id);
-                }}
-                className="bg-neutral-900 text-white px-5 rounded py-2 flex gap-2 items-center justify-center"
-              >
-                <ViewGridIcon />
-                Preview
               </button>
 
               <DeleteSurvey id={el.id} popSurvey={popDelete} />

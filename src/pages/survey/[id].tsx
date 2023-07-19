@@ -16,7 +16,7 @@ function SurveyView(props: any) {
       }}
     >
       <h1 className="text-md md:text-2xl">{props.data.title}</h1>
-      <Swiper questions={props.data.question} />
+      <Swiper questions={props.data.question} isPreview={false} />
     </div>
   );
 }

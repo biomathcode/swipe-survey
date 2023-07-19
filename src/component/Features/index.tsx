@@ -30,6 +30,7 @@ function Features() {
         justifyContent: "space-around",
         alignContent: "center",
         alignItems: "center",
+        borderRadius: "50px",
       }}
       className="bg-orange-100 md:p-0 p-20"
     >

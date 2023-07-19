@@ -39,7 +39,7 @@ async function question(req: NextApiRequest, res: NextApiResponse) {
     });
   }
   if (req.method === "DELETE") {
-    const deleteContent = prisma.question.delete({
+    const deleteContent = await prisma.question.delete({
       where: {
         id: id,
       },

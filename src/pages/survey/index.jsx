@@ -1,4 +1,6 @@
 // Create Survey page
+
+"use Client";
 import CreateSurvey from "@/component/CreateSurvey";
 import {
   ExternalLinkIcon,
@@ -14,10 +16,22 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { authOptions } from "../api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
+import DeleteSurvey from "@/component/DeleteSurvey";
+import { useEffect, useState } from "react";
 
 // TODO: REPLACE LINK TO DIALOG TO CREATE SURVEY
 function Surveys(props) {
   const router = useRouter();
+
+  let data = props.data;
+
+  const popDelete = (id) => {
+    const newData = props.data?.filter((el) => el.id !== id);
+
+    let data = newData;
+  };
+
+  console.log(data);
   return (
     <div
       style={{ width: "100vh", height: "calc(100vw -  40px)" }}
@@ -28,8 +42,8 @@ function Surveys(props) {
         <CreateSurvey />
       </div>
       <hr style={{ width: "100vw" }} />
-      {props.data.length > 0 ? (
-        props.data.map((el) => (
+      {data?.length > 0 ? (
+        data?.map((el) => (
           <div
             key={el.id}
             style={{ minWidth: "500px" }}
@@ -55,6 +69,7 @@ function Surveys(props) {
             </Link>
 
             <div className="flex justify-around">
+              <DeleteSurvey id={el.id} popSurvey={popDelete} />
               <button
                 onClick={() => {
                   router.push("/edit/" + el.id);
@@ -86,11 +101,9 @@ function Surveys(props) {
           </div>
         ))
       ) : (
-        <div>
+        <div className="flex flex-col justify-center gap-10">
           <p>No Survey Found </p>
           <CreateSurvey />
-
-          <Link href="/edit">Create Survey</Link>
         </div>
       )}
     </div>

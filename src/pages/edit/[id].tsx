@@ -10,6 +10,12 @@ function Edit(props: any) {
   console.log("this", props);
   const [data, setData] = useState(props.data.question);
 
+  function popDelete(id: string) {
+    const newData = data.filter((el: any) => el.id !== id);
+
+    setData(newData);
+  }
+
   return (
     <>
       <div className="flex justify-around">
@@ -34,7 +40,7 @@ function Edit(props: any) {
             />
 
             {data?.map((el: any, i: any) => (
-              <EditForm i={i} el={el} key={i} />
+              <EditForm i={i} el={el} key={i} popDelete={popDelete} />
             ))}
           </div>
         </div>

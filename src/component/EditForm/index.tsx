@@ -1,8 +1,9 @@
 import { FileIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import axios from "axios";
 import { useState } from "react";
+import DeleteQuestion from "../DeleteQuestion";
 
-function EditForm({ el, i }: { el: any; i: any }) {
+function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
   const [isEdit, setIsEdit] = useState(false);
 
   const [content, setContent] = useState(el.content);
@@ -58,6 +59,7 @@ function EditForm({ el, i }: { el: any; i: any }) {
           >
             <Pencil1Icon />
           </button>
+          <DeleteQuestion id={el.id} popQuestion={popDelete} />
         </>
       )}
     </div>

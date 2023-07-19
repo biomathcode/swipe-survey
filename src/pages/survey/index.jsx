@@ -18,6 +18,7 @@ import { authOptions } from "../api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import DeleteSurvey from "@/component/DeleteSurvey";
 import { useEffect, useState } from "react";
+import Header from "@/component/Header";
 
 // TODO: REPLACE LINK TO DIALOG TO CREATE SURVEY
 function Surveys(props) {
@@ -33,73 +34,76 @@ function Surveys(props) {
 
   console.log(data);
   return (
-    <div
-      style={{
-        width: "100vh",
-        height: "calc(100vh -  80px)",
-        overflow: "scroll",
-      }}
-      className="flex flex-col justify-start gap-2 items-center mt-5 min-w-full min-h-full"
-    >
-      <div className="flex justify-between gap-20">
-        <h1 className="font-bold text-2xl">Survey</h1>
-        <CreateSurvey />
-      </div>
-      <hr style={{ width: "100vw" }} />
-      {data?.length > 0 ? (
-        data?.map((el) => (
-          <div
-            key={el.id}
-            style={{ minWidth: "300px" }}
-            className="p-2 w-md  bg-white border border-gray-200 rounded-lg shadow flex flex-col gap-10 justify-between "
-          >
-            <div
-              style={{ minWidth: "300px" }}
-              className="p-2 w-md   flex gap-2 justify-between "
-            >
-              <div className="flex gap-4 justify-start items-center">
-                <div>{el.title}</div>
-                <div>Question: {el.question.length}</div>
-                <div>Response: {el.question[0]?.Response?.length} </div>
-              </div>
-              <div className="text-sm text-neutral-400 flex items-end justify-end">
-                {formatDistance(new Date(el.createdAt), new Date(), {
-                  addSuffix: true,
-                })}
-              </div>
-            </div>
-
-            <div className="flex justify-around gap-2">
-              <button
-                onClick={() => {
-                  router.push("/analytics/" + el.id);
-                }}
-                className="bg-neutral-900 text-white px-3 text-sm rounded py-2 flex gap-2 items-center justify-center"
-              >
-                <PieChartIcon />
-                Analytics
-              </button>
-              <button
-                onClick={() => {
-                  router.push("/edit/" + el.id);
-                }}
-                className=" bg-neutral-900 text-white px-3 rounded py-2 text-sm flex gap-2 items-center justify-center"
-              >
-                <Pencil1Icon />
-                Edit
-              </button>
-
-              <DeleteSurvey id={el.id} popSurvey={popDelete} />
-            </div>
-          </div>
-        ))
-      ) : (
-        <div className="flex flex-col justify-center gap-10">
-          <p>No Survey Found </p>
+    <>
+      <Header />
+      <div
+        style={{
+          width: "100vh",
+          height: "calc(100vh -  80px)",
+          overflow: "scroll",
+        }}
+        className="flex flex-col justify-start gap-2 items-center mt-5 min-w-full min-h-full"
+      >
+        <div className="flex justify-between gap-20">
+          <h1 className="font-bold text-2xl">Survey</h1>
           <CreateSurvey />
         </div>
-      )}
-    </div>
+        <hr style={{ width: "100vw" }} />
+        {data?.length > 0 ? (
+          data?.map((el) => (
+            <div
+              key={el.id}
+              style={{ minWidth: "300px" }}
+              className="p-2 w-md  bg-white border border-gray-200 rounded-lg shadow flex flex-col gap-10 justify-between "
+            >
+              <div
+                style={{ minWidth: "300px" }}
+                className="p-2 w-md   flex gap-2 justify-between "
+              >
+                <div className="flex gap-4 justify-start items-center">
+                  <div>{el.title}</div>
+                  <div>Question: {el.question.length}</div>
+                  <div>Response: {el.question[0]?.Response?.length} </div>
+                </div>
+                <div className="text-sm text-neutral-400 flex items-end justify-end">
+                  {formatDistance(new Date(el.createdAt), new Date(), {
+                    addSuffix: true,
+                  })}
+                </div>
+              </div>
+
+              <div className="flex justify-around gap-2">
+                <button
+                  onClick={() => {
+                    router.push("/analytics/" + el.id);
+                  }}
+                  className="bg-neutral-900 text-white px-3 text-sm rounded py-2 flex gap-2 items-center justify-center"
+                >
+                  <PieChartIcon />
+                  Analytics
+                </button>
+                <button
+                  onClick={() => {
+                    router.push("/edit/" + el.id);
+                  }}
+                  className=" bg-neutral-900 text-white px-3 rounded py-2 text-sm flex gap-2 items-center justify-center"
+                >
+                  <Pencil1Icon />
+                  Edit
+                </button>
+
+                <DeleteSurvey id={el.id} popSurvey={popDelete} />
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="flex flex-col justify-center gap-10">
+            <p>No Survey Found </p>
+            <CreateSurvey />
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

@@ -15,7 +15,6 @@ export default function App({
     <SessionProvider session={session}>
       <NextNProgress color="#FFD8AA" height={5} />
 
-      <Header />
       <Seo />
 
       <main

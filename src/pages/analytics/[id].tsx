@@ -3,24 +3,29 @@
 // TODO: Aggreability of user
 // TODO: Similar response by users
 // TODO: See Response by User
+import AnalyticsCard from "@/component/Card";
+import Header from "@/component/Header";
 
 function Analytics(props: any) {
   console.log(props);
 
   return (
-    <div className="m-20 p-20">
-      <div>See Response by user email</div>
-      <div>
-        Remove Outliers <i>Users which response yes or no to all the answers</i>
-        <input type="checkbox" />
-      </div>
+    <>
+      <Header />
+      <div className="m-20 p-20">
+        <div>See Response by user email</div>
+        <div>
+          Remove Outliers{" "}
+          <i>Users which response yes or no to all the answers</i>
+          <input type="checkbox" />
+        </div>
 
-      <AnalyticsCard data={props.data} />
-    </div>
+        <AnalyticsCard data={props.data} />
+      </div>
+    </>
   );
 }
 
-import AnalyticsCard from "@/component/Card";
 // You should use getServerSideProps when:
 // - Only if you need to pre-render a page whose data must be fetched at request time
 import { GetServerSideProps } from "next";

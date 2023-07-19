@@ -8,6 +8,7 @@ import Swiper from "@/component/Swiper";
 import Link from "next/link";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import axios from "axios";
+import Header from "@/component/Header";
 
 function Preview({ data }: { data: any }) {
   return (
@@ -30,6 +31,7 @@ function Edit(props: any) {
 
   return (
     <>
+      <Header />
       <div className="flex  justify-around">
         <div
           style={{

@@ -4,20 +4,24 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { GetServerSideProps } from "next";
 import Swiper from "../../component/Swiper";
+import Header from "@/component/Header";
 
 function SurveyView(props: any) {
   return (
-    <div
-      title="surveyView"
-      className="flex flex-col mt-20 sm:mt-20 text-center md:mt-10 justify-start items-start content-start md:justify-center md:items-center md:content-center "
-      style={{
-        width: "100vw",
-        height: "calc(100vh - 100px)",
-      }}
-    >
-      <h1 className="text-md md:text-2xl">{props.data.title}</h1>
-      <Swiper questions={props.data.question} isPreview={false} />
-    </div>
+    <>
+      <Header />
+      <div
+        title="surveyView"
+        className="flex flex-col mt-20 sm:mt-20 text-center md:mt-10 justify-start items-start content-start md:justify-center md:items-center md:content-center "
+        style={{
+          width: "100vw",
+          height: "calc(100vh - 100px)",
+        }}
+      >
+        <h1 className="text-md md:text-2xl">{props.data.title}</h1>
+        <Swiper questions={props.data.question} isPreview={false} />
+      </div>
+    </>
   );
 }
 

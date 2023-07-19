@@ -55,7 +55,7 @@ function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
           <button
             aria-label="Edit"
             onClick={() => setIsEdit(true)}
-            className="px-2 py-1 bg-neutral-800 text-white rounded"
+            className="px-2 py-1 inline-block bg-neutral-800 text-white rounded"
           >
             <Pencil1Icon />
           </button>

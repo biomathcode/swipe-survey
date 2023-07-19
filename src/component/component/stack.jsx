@@ -1,10 +1,29 @@
 "use client";
 
-import React, { useState, Children, useEffect } from "react";
+import React, {
+  useState,
+  Children,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import styled from "styled-components";
 import { Card } from "./card";
 
 // basic default styles for container
+
+const useStackHook = (children) => {
+  const [stack, setStack] = useState(Children.toArray(children).reverse());
+
+  // useEffect(() => {
+
+  // }, [children])
+
+  console.log("this shoudl stacK", children);
+
+  return { stack, setStack };
+};
+
 const Frame = styled.div`
   width: 100%;
   overflow: hidden;
@@ -22,9 +41,8 @@ export const Stack = ({
   blink,
   ...props
 }) => {
-  const [stack, setStack] = useState(Children.toArray(children));
-
   // return new array with last item removed
+  const { stack, setStack } = useStackHook(children);
 
   const pop = (array) => {
     return array.filter((_, index) => {
@@ -41,6 +59,8 @@ export const Stack = ({
     onVote(item, vote);
     blink();
   };
+
+  console.log("this is the data", stack);
 
   return (
     <>
@@ -60,6 +80,7 @@ export const Stack = ({
             </Card>
           );
         })}
+        {<div>Thanks for your feedback</div>}
       </Frame>
     </>
   );

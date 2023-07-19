@@ -111,8 +111,6 @@ export const Card = ({
     }
   }, [x, setBorder, direction, controls, setTraffic]);
 
-  console.log(props, style);
-
   return (
     <StyledCard
       animate={controls}

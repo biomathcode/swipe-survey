@@ -6,6 +6,15 @@ import { GetServerSideProps } from "next";
 import EditForm from "@/component/EditForm";
 import Swiper from "@/component/Swiper";
 
+function Preview({ data }: { data: any }) {
+  return (
+    <div>
+      <h1 className="text-2xl font-bold text-center">Preview</h1>
+      <Swiper questions={data} />
+    </div>
+  );
+}
+
 function Edit(props: any) {
   console.log("this", props);
   const [data, setData] = useState(props.data.question);
@@ -18,21 +27,20 @@ function Edit(props: any) {
 
   return (
     <>
-      <div className="flex justify-around">
+      <div className="flex  justify-around">
         <div
           style={{
             width: "50vw",
-            height: "calc(100vh - 50px",
+            maxHeight: "calc(100vh - 60px)",
             overflow: "scroll",
             padding: "100px 20px",
           }}
-          className="mt-20 flex justify-center items-center content-center"
+          className=" flex justify-start   content-center"
         >
-          <div className="flex flex-col max-w-lg ">
-            <input
-              className="text-6xl border-b-2 border-gray-600"
-              defaultValue={props.data.title}
-            />
+          <div className="flex flex-col justify-start max-w-lg ">
+            <h1 className="text-6xl border-b-2 border-gray-600">
+              {props.data.title}
+            </h1>
             <QuestionForm
               surveyid={props.data.id}
               data={data}
@@ -48,18 +56,6 @@ function Edit(props: any) {
           <h1 className="text-2xl font-bold text-center">Preview</h1>
           <Swiper questions={data} />
         </div>
-      </div>
-      <div
-        style={{
-          position: "sticky",
-          bottom: "0px",
-          width: "100vw",
-          height: "60px",
-        }}
-        className="bg-neutral-800 text-white flex justify-around content-center items-center "
-      >
-        <div></div>
-        <button className="bg-blue-600 px-4 py-2  ">Publish</button>
       </div>
     </>
   );

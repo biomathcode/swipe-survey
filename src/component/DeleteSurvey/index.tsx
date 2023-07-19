@@ -1,5 +1,5 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { Cross2Icon, PlusCircledIcon } from "@radix-ui/react-icons";
+import { Cross2Icon, PlusCircledIcon, TrashIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import { useState } from "react";
 
@@ -27,7 +27,7 @@ function DeleteSurvey({ id, popSurvey }: DeleteType) {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <button className="text-violet11 bg-neutral-900 gap-2 text-white hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px]  px-[15px] font-medium leading-none  focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
-          <PlusCircledIcon /> Delete Survey
+          <TrashIcon /> Delete
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>

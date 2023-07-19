@@ -14,16 +14,16 @@ const Wrapper = styled(Stack)`
   box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.25);
   margin: 10px;
   min-height: 300px;
-  min-width: 500px;
+  min-width: 300px;
 `;
 
 const Item = styled.div`
-  width: 300px;
+  width: 240px;
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background: #f8f8f8;
@@ -36,8 +36,6 @@ export default function Swiper({ questions }) {
   const [traffic, setTraffic] = useState(["red", "yellow", "green"]);
 
   const [previous, setPrevious] = useState("#f4f4f4");
-
-  useEffect(() => {}, [questions]);
 
   function blink() {
     const light = setInterval(() => {
@@ -54,8 +52,8 @@ export default function Swiper({ questions }) {
 
   return (
     <main
-      style={{ width: "50vw", minWidth: "500px" }}
-      className=" min-h-screen flex-col items-center justify-between p-24 bg-white text-black "
+      style={{ width: "50vw", minWidth: "200px" }}
+      className="  flex-col items-center justify-between md:p-24 p-4  bg-white text-black "
     >
       <Traffics traffic={traffic} />
 
@@ -88,6 +86,7 @@ export default function Swiper({ questions }) {
       >
         {questions?.map((el) => (
           <Item
+            className="text-lg md:text-2xl"
             borderColor={previous}
             data-value={el.id}
             whileTap={{ scale: 1.15 }}

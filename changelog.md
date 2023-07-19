@@ -1,5 +1,19 @@
 # Changelog
 
+
+## [0.1.1] - 2023-07-19
+
+### Added
+- UI for delete, edit questions
+- UI for delete, edit in survey
+
+
+### Future Changes
+- We will not collect emails. 
+- We are moving towards complete anonymous
+- We will collect data like device, country only
+
+
 ## [0.1.1] - 2023-07-16
 
 ### Added

@@ -9,7 +9,7 @@ import {
   ViewGridIcon,
 } from "@radix-ui/react-icons";
 import axios from "axios";
-import { formatDistance } from "date-fns";
+import { formatDistance, setDate } from "date-fns";
 import { GetServerSideProps } from "next";
 import { getToken } from "next-auth/jwt";
 import Link from "next/link";
@@ -23,12 +23,12 @@ import { useEffect, useState } from "react";
 function Surveys(props) {
   const router = useRouter();
 
-  let data = props.data;
+  let [data, setData] = useState(props.data);
 
   const popDelete = (id) => {
     const newData = props.data?.filter((el) => el.id !== id);
 
-    let data = newData;
+    setData(newData);
   };
 
   console.log(data);
@@ -46,12 +46,12 @@ function Surveys(props) {
         data?.map((el) => (
           <div
             key={el.id}
-            style={{ minWidth: "500px" }}
+            style={{ minWidth: "300px" }}
             className="p-2 w-md  bg-white border border-gray-200 rounded-lg shadow flex flex-col gap-10 justify-between "
           >
             <Link href={"/survey/" + el.id}>
               <div
-                style={{ minWidth: "500px" }}
+                style={{ minWidth: "300px" }}
                 className="p-2 w-md   flex justify-between "
               >
                 <div className="flex gap-4 justify-start items-center">
@@ -69,7 +69,15 @@ function Surveys(props) {
             </Link>
 
             <div className="flex justify-around">
-              <DeleteSurvey id={el.id} popSurvey={popDelete} />
+              <button
+                onClick={() => {
+                  router.push("/analytics/" + el.id);
+                }}
+                className="bg-neutral-900 text-white px-5 rounded py-2 flex gap-2 items-center justify-center"
+              >
+                <PieChartIcon />
+                Analytics
+              </button>
               <button
                 onClick={() => {
                   router.push("/edit/" + el.id);
@@ -88,15 +96,8 @@ function Surveys(props) {
                 <ViewGridIcon />
                 Preview
               </button>
-              <button
-                onClick={() => {
-                  router.push("/analytics/" + el.id);
-                }}
-                className="bg-neutral-900 text-white px-5 rounded py-2 flex gap-2 items-center justify-center"
-              >
-                <PieChartIcon />
-                Analytics
-              </button>
+
+              <DeleteSurvey id={el.id} popSurvey={popDelete} />
             </div>
           </div>
         ))

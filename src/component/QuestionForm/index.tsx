@@ -27,20 +27,18 @@ function QuestionForm({
     <form
       className="mt-20 flex justify-between items-center gap-2  "
       onSubmit={handleSubmit(async (ol, onerror) => {
-        setData((data: any) => [
-          ...data,
-          {
-            content: ol.question,
-            email: session?.user?.email,
-          },
-        ]);
         const data = await axios.post("http://localhost:3000/api/question", {
           content: ol.question,
           surveyId: surveyid,
           email: session?.user?.email,
         });
-        console.log(data);
-        reset();
+        if (data) {
+          setData((pre: any) => [...pre, data]);
+          console.log(data);
+          reset();
+        } else {
+          console.log(data);
+        }
       })}
     >
       <input

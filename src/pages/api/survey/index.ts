@@ -3,16 +3,23 @@
 
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../../lib/prisma";
-import { getServerSession } from "next-auth";
+
 import { authOptions } from "../auth/[...nextauth]";
+import { getServerSession } from "next-auth/next";
 
 // GET all survey
 // Post To create a new survey
 
 async function survey(req: NextApiRequest, res: NextApiResponse) {
+  // const session = await getServerSession(req, res, authOptions);
+
+  // console.log("SESSION: ", session?.user?.email);
+
   if (req.method === "GET") {
     try {
       const allsurvey = await prisma.survey.findMany({});
+
+      console.log("data", allsurvey);
       return res.status(200).json({
         data: allsurvey,
 

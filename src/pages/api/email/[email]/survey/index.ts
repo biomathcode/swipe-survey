@@ -15,6 +15,13 @@ async function survey(req: NextApiRequest, res: NextApiResponse) {
         where: {
           email: email,
         },
+        include: {
+          question: {
+            include: {
+              Response: true,
+            },
+          },
+        },
       });
       return res.status(200).json({
         data: allsurvey,

@@ -34,8 +34,12 @@ function Surveys(props) {
   console.log(data);
   return (
     <div
-      style={{ width: "100vh", height: "calc(100vw -  40px)" }}
-      className="flex flex-col justify-start gap-2 items-center mt-20 min-w-full min-h-full"
+      style={{
+        width: "100vh",
+        height: "calc(100vh -  80px)",
+        overflow: "scroll",
+      }}
+      className="flex flex-col justify-start gap-2 items-center mt-5 min-w-full min-h-full"
     >
       <div className="flex justify-between gap-20">
         <h1 className="font-bold text-2xl">Survey</h1>
@@ -49,24 +53,21 @@ function Surveys(props) {
             style={{ minWidth: "300px" }}
             className="p-2 w-md  bg-white border border-gray-200 rounded-lg shadow flex flex-col gap-10 justify-between "
           >
-            <Link href={"/survey/" + el.id}>
-              <div
-                style={{ minWidth: "300px" }}
-                className="p-2 w-md   flex justify-between "
-              >
-                <div className="flex gap-4 justify-start items-center">
-                  <div>{el.title}</div>
-                  <div>
-                    <ExternalLinkIcon />
-                  </div>
-                </div>
-                <div className="text-sm text-neutral-400 flex items-end justify-end">
-                  {formatDistance(new Date(el.createdAt), new Date(), {
-                    addSuffix: true,
-                  })}
-                </div>
+            <div
+              style={{ minWidth: "300px" }}
+              className="p-2 w-md   flex gap-2 justify-between "
+            >
+              <div className="flex gap-4 justify-start items-center">
+                <div>{el.title}</div>
+                <div>Question: {el.question.length}</div>
+                <div>Response: {el.question[0]?.Response?.length} </div>
               </div>
-            </Link>
+              <div className="text-sm text-neutral-400 flex items-end justify-end">
+                {formatDistance(new Date(el.createdAt), new Date(), {
+                  addSuffix: true,
+                })}
+              </div>
+            </div>
 
             <div className="flex justify-around gap-2">
               <button

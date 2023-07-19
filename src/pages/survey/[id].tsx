@@ -9,7 +9,6 @@ import Header from "@/component/Header";
 function SurveyView(props: any) {
   return (
     <>
-      <Header />
       <div
         title="surveyView"
         className="flex flex-col mt-20 sm:mt-20 text-center md:mt-10 justify-start items-start content-start md:justify-center md:items-center md:content-center "

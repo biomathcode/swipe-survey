@@ -1,10 +1,6 @@
-//
-
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { GetServerSideProps } from "next";
 import Swiper from "../../component/Swiper";
-import Header from "@/component/Header";
+import { headers } from "next/headers";
 
 function SurveyView(props: any) {
   return (
@@ -29,7 +25,11 @@ function SurveyView(props: any) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { id } = ctx.query;
-  const res = await fetch("http://localhost:3000/api/survey/" + id); // your fetch function here
+  const host = ctx.req.headers.host;
+  const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
+  let res = await fetch(`${protocal}://${host}/api/survey/${id}`, {
+    cache: "no-store",
+  });
 
   const data = await res.json();
 

@@ -22,7 +22,10 @@
 - [ ] Add Country Response - in Analytics
 - [ ] Add Filter and Search Option in the analytics
 - [ ] Create a summary of the response 
-
+- [ ] Improve the Survey Builder
+- [ ] Improve the UI of the Survey Index page
+- [ ] Create Zustand and add api support
+- [ ] 
 
 
 - [ ] Add light and Dark theme 

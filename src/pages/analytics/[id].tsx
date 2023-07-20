@@ -3,6 +3,8 @@
 // TODO: Aggreability of user
 // TODO: Similar response by users
 // TODO: See Response by User
+import { GetServerSideProps } from "next";
+
 import AnalyticsCard from "@/component/Card";
 import Header from "@/component/Header";
 
@@ -28,11 +30,14 @@ function Analytics(props: any) {
 
 // You should use getServerSideProps when:
 // - Only if you need to pre-render a page whose data must be fetched at request time
-import { GetServerSideProps } from "next";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { id } = ctx.query;
-  const res = await fetch("http://localhost:3000/api/survey/" + id); // your fetch function here
+  const host = ctx.req.headers.host;
+
+  const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
+
+  const res = await fetch(`${protocal}://${host}/api/survey/${id}`); // your fetch function here
 
   const data = await res.json();
 

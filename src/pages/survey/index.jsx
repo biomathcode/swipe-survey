@@ -19,6 +19,7 @@ import { getServerSession } from "next-auth";
 import DeleteSurvey from "@/component/DeleteSurvey";
 import { useEffect, useState } from "react";
 import Header from "@/component/Header";
+import { headers } from "next/headers";
 
 // TODO: REPLACE LINK TO DIALOG TO CREATE SURVEY
 function Surveys(props) {
@@ -111,17 +112,27 @@ function Surveys(props) {
 // - Only if you need to pre-render a page whose data must be fetched at request time
 
 export const getServerSideProps = async (ctx) => {
+  const host = ctx.req.headers.host;
+
   const session = await getServerSession(ctx.req, ctx.res, authOptions);
+  const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
 
   if (session) {
-    const res = await axios.get(
-      "http://localhost:3000/api/email/" + session.user?.email + "/survey"
+    const response = await fetch(
+      `${protocal}://${host}/api/email/${session.user?.email}/survey`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
-    const data = await res.data;
+
+    const res = await response.json();
 
     return {
       props: {
-        data: data.data,
+        data: res.data,
       },
     };
   } else {

@@ -73,8 +73,12 @@ function Edit(props: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const host = ctx.req.headers.host;
+
+  const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
+
   const { id } = ctx.query;
-  const { data } = await axios.get(`http://localhost:3000/api/survey/${id}`); // your fetch function here
+  const { data } = await axios.get(`${protocal}://${host}/api/survey/${id}`); // your fetch function here
 
   if (!data) {
     return {

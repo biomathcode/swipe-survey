@@ -23,6 +23,7 @@ const Item = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: grab;
 
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -70,16 +71,13 @@ export default function Swiper({ questions, isPreview = true }) {
               userId: "sharma.pratik2016@gmail.com",
               value: String(vote),
             };
-            const createResponse = await fetch(
-              "http://localhost:3000/api/response",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(body),
-              }
-            );
+            const createResponse = await fetch("/api/response", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(body),
+            });
 
             const res = await createResponse.json();
             console.log(res);

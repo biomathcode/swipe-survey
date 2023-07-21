@@ -1,8 +1,46 @@
 import { GetServerSideProps } from "next";
 import Swiper from "../../component/Swiper";
 import { headers } from "next/headers";
+import { nanoid } from "nanoid";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function SurveyView(props: any) {
+  const [user, setUser] = useState({
+    ip: "",
+    countryName: "",
+    countryCode: "",
+    city: "",
+    timezone: "",
+  });
+
+  const getGeoInfo = () => {
+    axios
+      .get("https://ipapi.co/json/")
+      .then((response) => {
+        let data = response.data;
+        setUser({
+          ...user,
+          ip: data.ip,
+          countryName: data.country_name,
+          countryCode: data.country_calling_code,
+          city: data.city,
+          timezone: data.timezone,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    let device = window.navigator.userAgent;
+    console.log("device", device);
+    getGeoInfo();
+  }, []);
+
+  console.log("this is user", user);
+
   return (
     <>
       <div

@@ -30,6 +30,7 @@
     "eslint-config-next": "13.4.7",
     "framer-motion": "^3.1.1",
     "mermaid": "^10.2.4",
+    "nanoid": "^4.0.2",
     "next": "13.4.7",
     "next-auth": "^4.22.1",
     "nextjs-progressbar": "^0.0.16",

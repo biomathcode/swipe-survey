@@ -10,12 +10,9 @@ function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
 
   async function handleContent() {
     if (content !== el.content) {
-      const res = await axios.put(
-        "http://localhost:3000/api/question/" + el.id,
-        {
-          content: content,
-        }
-      );
+      const res = await axios.put("/api/question/" + el.id, {
+        content: content,
+      });
 
       setContent(res.data.data.content);
 

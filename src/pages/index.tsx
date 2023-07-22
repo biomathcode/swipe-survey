@@ -1,6 +1,7 @@
 import Features from "@/component/Features";
 import Footer from "@/component/Footer";
 import Header from "@/component/Header";
+import Usecase from "@/component/Usecase";
 
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
@@ -55,6 +56,8 @@ function App() {
           take decisions without data analysis.
         </div>
         <Features />
+
+        <Usecase />
         {/* <Mermaid>{`
    graph TD
    1[Do you struggle with writing effectively?] -->|Yes| 2[Are you aware of the AI bot that helps you write better?]

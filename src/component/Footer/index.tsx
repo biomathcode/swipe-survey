@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function Footer() {
   return (
     <footer className="bg-white rounded-lg shadow m-4 dark:bg-neutral-900 ">
@@ -10,19 +12,19 @@ function Footer() {
         </span>
         <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-200 dark:text-neutral-100 sm:mt-0">
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6 ">
+            <Link href="/about" className="mr-4 hover:underline md:mr-6 ">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
+            <Link href="/privacy" className="mr-4 hover:underline md:mr-6">
               Privacy Policy
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
+            <Link href="/license" className="mr-4 hover:underline md:mr-6">
               Licensing
-            </a>
+            </Link>
           </li>
           <li>
             <a

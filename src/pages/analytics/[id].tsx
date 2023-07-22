@@ -7,23 +7,21 @@ import { GetServerSideProps } from "next";
 
 import AnalyticsCard from "@/component/Card";
 import Header from "@/component/Header";
+import Separator from "@/component/Separator";
 
 function Analytics(props: any) {
   console.log(props);
 
   return (
     <>
-      <Header />
-      <div className="m-20 p-20">
-        <div>See Response by user email</div>
-        <div>
-          Remove Outliers{" "}
-          <i>Users which response yes or no to all the answers</i>
-          <input type="checkbox" />
-        </div>
-
-        <AnalyticsCard data={props.data} />
+      <Header theme="light" />
+      <div className="flex max-w-lg w-full mt-5 justify-start items-start content-start">
+        <h1 className="text-4xl  ">Analytics </h1>
       </div>
+      <Separator />
+      <div className=""></div>
+
+      <AnalyticsCard data={props.data} />
     </>
   );
 }

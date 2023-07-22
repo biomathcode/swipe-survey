@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 
 import "@/styles/globals.css";
 import "@/styles/colors.css";
-import Header from "@/component/Header";
 import Seo from "@/component/SEO";
 import NextNProgress from "nextjs-progressbar";
 

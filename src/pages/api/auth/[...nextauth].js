@@ -15,5 +15,9 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET || "",
     }),
   ],
+  theme: {
+    colorSchema: "light",
+    logo: "https://swipe-survey.vercel.app/favicon/android-chrome-192x192.png",
+  },
 };
 export default NextAuth(authOptions);

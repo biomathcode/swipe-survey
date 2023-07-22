@@ -1,14 +1,30 @@
 "use client";
 
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
-function Header() {
+type HeaderProps = {
+  theme?: "light" | "dark";
+};
+
+const Themes = {
+  light: {
+    background: "#FEFFFE",
+    color: "#272626",
+  },
+  dark: {
+    background: "#272626",
+    color: "#FEFFFE",
+  },
+};
+
+function Header({ theme = "light" }: HeaderProps) {
   const { data: session } = useSession();
 
   return (
     <nav
-      className="bg-neutral-900"
+      // className="bg-neutral-900"
       style={{
         position: "fixed",
         top: "0px",
@@ -16,12 +32,12 @@ function Header() {
         height: "60px",
         padding: "20px",
         borderBottom: "1px solid #eee",
-
-        color: "white",
+        // color: "white",
         display: "flex",
         justifyContent: "space-between",
         alignContent: "center",
         alignItems: "center",
+        ...Themes[theme],
       }}
     >
       <Link href="/" className=" ">
@@ -39,7 +55,13 @@ function Header() {
           <button onClick={() => signIn()}>Login</button>
           <Link href="/solution">Solutions</Link>
           <Link href="/product">Products</Link>
-          <Link href="/changes">ChangeLogs</Link>
+          <Link href="/changes">Changelog</Link>
+          <Link
+            href="https://github.com/biomathcode/swipe-survey"
+            className="flex center items-center content-center "
+          >
+            <GitHubLogoIcon />
+          </Link>
         </div>
       ) : (
         <div className="flex flex-row items-center gap-10">

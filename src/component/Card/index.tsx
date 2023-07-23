@@ -1,3 +1,5 @@
+"use Client";
+
 import * as Progress from "@radix-ui/react-progress";
 
 const ProgressBar = ({
@@ -43,24 +45,28 @@ const ResponseTable = ({ data }: { data: any }) => {
     >
       <h1>Responses:</h1>
       <table>
-        <tr>
-          <th>ID</th>
-          <th>Country</th>
-          <th>Device</th>
-          <th>Question</th>
-          <th>Response</th>
-        </tr>
-        {flattenResponse?.map((el: any) => {
-          return (
-            <tr key={el?.id}>
-              <td>{el?.byUser}</td>
-              <td>{el?.country}</td>
-              <td>{el?.device}</td>
-              <td>{el?.question}</td>
-              <td>{el?.value}</td>
-            </tr>
-          );
-        })}
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Country</th>
+            <th>Device</th>
+            <th>Question</th>
+            <th>Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          {flattenResponse?.map((el: any) => {
+            return (
+              <tr key={el?.id}>
+                <td>{el?.byUser}</td>
+                <td>{el?.country || "🇮🇳"}</td>
+                <td>{el?.device || "MacOS"}</td>
+                <td>{el?.question}</td>
+                <td>{el?.value}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

@@ -1,19 +1,29 @@
 import * as Progress from "@radix-ui/react-progress";
 
-const ProgressBar = ({ progress }: { progress: number }) => {
+const ProgressBar = ({
+  progress,
+  color = "#B6E2A1",
+}: {
+  progress: number;
+  color?: string;
+}) => {
   return (
     <Progress.Root
-      className="relative overflow-hidden bg-neutral-200 rounded-full w-[300px] h-[10px]"
+      className="relative overflow-hidden  rounded-full w-[300px] h-[10px]"
       style={{
         // Fix overflow clipping in Safari
         // https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0
         transform: "translateZ(0)",
+        background: "#FF8787",
       }}
       value={progress}
     >
       <Progress.Indicator
-        className="bg-blue-400 w-full h-full transition-transform duration-[660ms] ease-[cubic-bezier(0.65, 0, 0.35, 1)]"
-        style={{ transform: `translateX(-${100 - progress}%)` }}
+        className=" w-full h-full transition-transform duration-[660ms] ease-[cubic-bezier(0.65, 0, 0.35, 1)]"
+        style={{
+          transform: `translateX(-${100 - progress}%)`,
+          background: color,
+        }}
       />
     </Progress.Root>
   );
@@ -82,15 +92,11 @@ function AnalyticsCard({ data }: { data: any }) {
                 {". " + el.content}
               </div>
               <div className="flex gap-2 items-center content-center">
-                <div>Yes</div>
+                <div>Yes: {totalYes}</div>
                 <ProgressBar progress={percentYes} />
-                <div>{totalYes}</div>
+                <div>No: {totalNo}</div>
               </div>
-              <div className="flex gap-2 content-center items-center">
-                <div>No: </div>
-                <ProgressBar progress={percentNo} />
-                <div>{totalNo}</div>
-              </div>
+
               <div> Total response: {totalResponse}</div>
             </div>
           );

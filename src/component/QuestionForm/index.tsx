@@ -25,7 +25,7 @@ function QuestionForm({
 
   return (
     <form
-      className="mt-20 flex justify-between items-center gap-2  "
+      className="mt-10 flex justify-between items-center gap-2  "
       onSubmit={handleSubmit(async (ol, onerror) => {
         const data = await axios.post("http://localhost:3000/api/question", {
           content: ol.question,
@@ -46,7 +46,7 @@ function QuestionForm({
         {...register("question", { required: true })}
         placeholder="Write your question here"
         name="question"
-        className="min-w-full border-b-2 border-gray-400 text-lg outline-none "
+        className="min-w-[320px]  border-b-2 border-gray-400 text-lg outline-none "
       />
 
       {errors.content && <p>Last name is required.</p>}

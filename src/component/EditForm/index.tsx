@@ -23,7 +23,7 @@ function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
   }
 
   return (
-    <div className="flex gap-10 my-10">
+    <div className="flex gap-10 my-10 items-center content-center">
       {isEdit ? (
         <>
           <input
@@ -52,7 +52,7 @@ function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
           <button
             aria-label="Edit"
             onClick={() => setIsEdit(true)}
-            className="px-2 py-1 inline-block bg-neutral-800 text-white rounded"
+            className="  inline-block h-[35px] px-[15px] bg-neutral-900 text-white rounded"
           >
             <Pencil1Icon />
           </button>

@@ -32,15 +32,14 @@ function Edit(props: any) {
   return (
     <>
       <Header />
-      <div className="flex  justify-around">
+      <div className="flex  justify-around flex-col md:flex-row">
         <div
           style={{
-            width: "50vw",
             maxHeight: "calc(100vh - 60px)",
             overflow: "scroll",
             padding: "100px 20px",
           }}
-          className=" flex justify-start   content-center"
+          className="flex w-full md:w-1/2 justify-start   content-center"
         >
           <div className="flex flex-col justify-start max-w-lg ">
             <h1 className="text-6xl border-b-2 border-gray-600">

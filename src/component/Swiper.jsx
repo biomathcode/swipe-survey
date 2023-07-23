@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 const Wrapper = styled(Stack)`
   background: #fff;
   border: ${(props) => `4px solid ${props.border}`};
+  font-size: 14px;
 
   border-radius: 10px;
   box-sizing: border-box;

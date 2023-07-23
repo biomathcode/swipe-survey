@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-  useState,
-  Children,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import React, { useState, Children } from "react";
 import styled from "styled-components";
 import { Card } from "./card";
 
@@ -14,12 +8,6 @@ import { Card } from "./card";
 
 const useStackHook = (children) => {
   const [stack, setStack] = useState(Children.toArray(children).reverse());
-
-  // useEffect(() => {
-
-  // }, [children])
-
-  console.log("this shoudl stacK", children);
 
   return { stack, setStack };
 };

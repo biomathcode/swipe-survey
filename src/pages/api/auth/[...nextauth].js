@@ -7,7 +7,9 @@ import prisma from "lib/prisma";
 export const authOptions = {
   // Configure one or more authentication providers
   adapter: PrismaAdapter(prisma),
-  secret: process.env.NEXTAUTH_SECRET,
+  secret:
+    process.env.NEXTAUTH_SECRET ||
+    "qMCXK8JA03jxf8AyU9iA0RIwviOnw1ZJcY8eIMMs3Bc=",
 
   providers: [
     GithubProvider({

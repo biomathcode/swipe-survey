@@ -49,8 +49,6 @@ export default function Swiper({ questions, isPreview = true }) {
     }, 1000);
   }
 
-  console.log("border previous", previous);
-
   return (
     <main
       style={{ width: "50vw", minWidth: "200px" }}
@@ -64,7 +62,6 @@ export default function Swiper({ questions, isPreview = true }) {
         setTraffic={setTraffic}
         blink={blink}
         onVote={async (item, vote) => {
-          console.log("current data", item, vote);
           if (!isPreview) {
             const body = {
               questionId: item.props["data-value"],

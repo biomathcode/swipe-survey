@@ -12,29 +12,13 @@ function App() {
     <>
       <Header />
       <div className="min-w-full flex flex-col gap-10 justify-center content-center items-center ">
-        <div className="text-6xl mt-32 min-w-full flex text-center justify-center">
+        <div className="md:text-6xl text-2xl mt-32 min-w-full flex text-center justify-center">
           <h1 style={{ lineHeight: " 100px" }} className="	">
             Surveys which leads to <br />{" "}
             <span className="font-bold underline">Decision Making </span>
           </h1>
         </div>
 
-        {/* <div
-          style={{
-            width: "60vw",
-            height: "600px",
-          }}
-          className=" h-96  rounded-lg"
-        > */}
-        <iframe
-          style={{
-            width: "100%",
-            height: "700px",
-          }}
-          src="/survey/clk9vyumf0013uuicf851e4k1"
-          title="W3Schools Free Online Web Tutorials"
-        ></iframe>
-        {/* </div> */}
         {session ? (
           <Link
             className="px-5 py-3 bg-neutral-900 text-white font-bold text-md rounded-lg "
@@ -44,17 +28,27 @@ function App() {
           </Link>
         ) : (
           <button
-            className="px-5 py-3 bg-neutral-900 text-white font-bold text-lg "
+            className="px-5 py-3 bg-blue-600 text-white font-bold text-lg "
             onClick={() => signIn()}
           >
             Get Started
           </button>
         )}
 
-        <div>
+        <div className="text-center max-w-lg">
           Swipe Survey helps you create polarized surveys, removes outliers, and
           take decisions without data analysis.
         </div>
+        <iframe
+          style={{
+            width: "100%",
+            height: "700px",
+          }}
+          src="/survey/clk9vyumf0013uuicf851e4k1"
+          title="W3Schools Free Online Web Tutorials"
+        ></iframe>
+        {/* </div> */}
+
         <Features />
 
         <Usecase />

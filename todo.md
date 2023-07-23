@@ -16,6 +16,8 @@
 - [X] Survey End Page
 
 
+
+
 ## Priority Work 
 
 - [ ] Add Mobile Device Response - in Analytics
@@ -24,7 +26,6 @@
 - [ ] Create a summary of the response 
 - [ ] Improve the Survey Builder
 - [ ] Improve the UI of the Survey Index page
-- [ ] Create Zustand and add api support
 - [ ] Limit the Question size to 240 words
 
 

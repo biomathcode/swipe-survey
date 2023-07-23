@@ -4,6 +4,8 @@ import { headers } from "next/headers";
 import { nanoid } from "nanoid";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Head from "next/head";
+import Link from "next/link";
 
 function SurveyView(props: any) {
   const [user, setUser] = useState({
@@ -43,16 +45,33 @@ function SurveyView(props: any) {
 
   return (
     <>
+      <Head>
+        <title>{props.data.title}</title>
+      </Head>
       <div
         title="surveyView"
-        className="flex flex-col mt-20 sm:mt-20 text-center md:mt-10 justify-start items-start content-start md:justify-center md:items-center md:content-center "
+        className="flex flex-col mt-20 sm:mt-20 text-center md:mt-10 justify-start items-start content-start md:justify-center md:items-center  md:content-center "
         style={{
           width: "100vw",
           height: "calc(100vh - 100px)",
         }}
       >
-        <h1 className="text-md md:text-2xl">{props.data.title}</h1>
+        <div className="text-center w-full">
+          <h1 className="text-md md:text-2xl">{props.data.title}</h1>
+        </div>
         <Swiper questions={props.data.question} isPreview={false} />
+        <div style={{ position: "fixed", bottom: "10px" }}>
+          Powered by{" "}
+          <Link
+            target="_blank"
+            // style={{ color: "blue" }}
+            className="text-blue-600"
+            href="https://swipe-survey.vercel.app/"
+            aria-label="swipe survey"
+          >
+            SwipeSurvey
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -38,4 +38,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 
+## References: 
+
+[IBM Decision Model](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.x?topic=decisions-creating-decision-model)
+
 

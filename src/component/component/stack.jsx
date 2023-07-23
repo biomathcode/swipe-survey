@@ -60,8 +60,6 @@ export const Stack = ({
     blink();
   };
 
-  console.log("this is the data", stack);
-
   return (
     <>
       <Frame {...props}>

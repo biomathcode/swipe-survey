@@ -20,7 +20,7 @@ export default async function Survey(
       include: {
         question: {
           orderBy: {
-            createdAt: "desc",
+            createdAt: "asc",
           },
           include: {
             Response: true,

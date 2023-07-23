@@ -26,14 +26,16 @@ function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
     <div className="flex gap-10 my-10 items-center content-center">
       {isEdit ? (
         <>
-          <input
+          <div>{i + 1}</div>
+
+          <textarea
             // disabled
             // {...register("question", { required: true })}
             onChange={(e) => setContent(e.target.value)}
             value={content}
             placeholder="Write your question here"
             name="question"
-            className="min-w-full border-b-2 border-gray-400 text-lg outline-none "
+            className=" border-b-2 border-gray-400 text-lg outline-none "
           />
           <button
             aria-label="Save"

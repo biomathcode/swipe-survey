@@ -38,6 +38,7 @@ model Response {
   question   Question[]
   country    String?
   timezone   String?
+  device     String?
 }
 
 model Account {

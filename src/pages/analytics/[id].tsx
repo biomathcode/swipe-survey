@@ -8,6 +8,8 @@ import { GetServerSideProps } from "next";
 import AnalyticsCard from "@/component/Card";
 import Header from "@/component/Header";
 import Separator from "@/component/Separator";
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 function Analytics(props: any) {
   console.log(props);
@@ -15,11 +17,13 @@ function Analytics(props: any) {
   return (
     <>
       <Header theme="light" />
-      <div className="flex max-w-lg w-full mt-5 justify-start items-start content-start">
+      <div className="flex max-w-lg w-full mt-5 justify-around items-center content-center">
         <h1 className="text-4xl  ">Analytics </h1>
+        <Link target="_blank" href={"/survey/" + props.data.id}>
+          <ExternalLinkIcon />
+        </Link>
       </div>
       <Separator />
-      <div className=""></div>
 
       <AnalyticsCard data={props.data} />
     </>

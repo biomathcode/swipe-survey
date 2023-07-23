@@ -56,11 +56,12 @@ const ResponseTable = ({ data }: { data: any }) => {
         </thead>
         <tbody>
           {flattenResponse?.map((el: any) => {
+            const device = el?.device?.match(/\(.*?;\s*([^)]+)/)?.[1];
             return (
               <tr key={el?.id}>
                 <td>{el?.byUser}</td>
                 <td>{el?.country || "🇮🇳"}</td>
-                <td>{el?.device || "MacOS"}</td>
+                <td className="max-w-xs">{device || "MacOS"}</td>
                 <td>{el?.question}</td>
                 <td>{el?.value}</td>
               </tr>

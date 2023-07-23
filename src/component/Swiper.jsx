@@ -4,6 +4,8 @@ import { Stack } from "./component/stack";
 import styled from "styled-components";
 import { Traffics } from "./component/Traffic";
 import { useSession } from "next-auth/react";
+import { nanoid } from "nanoid";
+import axios from "axios";
 
 const Wrapper = styled(Stack)`
   background: #fff;
@@ -33,11 +35,48 @@ const Item = styled.div`
   border-radius: 8px;
 `;
 
+const userId = nanoid();
+
 export default function Swiper({ questions, isPreview = true }) {
   const [border, setBorder] = useState("#f4f4f4");
   const [traffic, setTraffic] = useState(["red", "yellow", "green"]);
 
   const [previous, setPrevious] = useState("#f4f4f4");
+
+  const [user, setUser] = useState({
+    ip: "",
+    countryName: "",
+    countryCode: "",
+    city: "",
+    timezone: "",
+    device: "",
+  });
+
+  const getGeoInfo = () => {
+    let device = window.navigator.userAgent;
+
+    axios
+      .get("https://ipapi.co/json/")
+      .then((response) => {
+        let data = response.data;
+        setUser({
+          ...user,
+          ip: data.ip,
+          countryName: data.country_name,
+          countryCode: data.country_calling_code,
+          city: data.city,
+          timezone: data.timezone,
+          device: device,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getGeoInfo();
+  }, []);
 
   function blink() {
     const light = setInterval(() => {
@@ -49,6 +88,8 @@ export default function Swiper({ questions, isPreview = true }) {
       setPrevious("white");
     }, 1000);
   }
+
+  console.log("User info", user);
 
   return (
     <main
@@ -63,11 +104,14 @@ export default function Swiper({ questions, isPreview = true }) {
         setTraffic={setTraffic}
         blink={blink}
         onVote={async (item, vote) => {
+          console.log(user);
           if (!isPreview) {
             const body = {
               questionId: item.props["data-value"],
-              userId: "sharma.pratik2016@gmail.com",
+              userId: userId,
               value: String(vote),
+              country: user.countryName,
+              device: user.device,
             };
             const createResponse = await fetch("/api/response", {
               method: "POST",

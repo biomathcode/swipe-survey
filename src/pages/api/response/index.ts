@@ -13,12 +13,14 @@ export default async function Response(
     return res.status(200).json({ data: getMany, msg: "success" });
   }
   if (req.method === "POST") {
-    const { questionId, value, userId } = req.body;
+    const { questionId, value, userId, country, device } = req.body;
     const createPost = await prisma.response.create({
       data: {
         questionId: questionId,
         value: value,
         byUser: userId,
+        device: device,
+        country: country,
         question: {
           connect: {
             id: questionId,

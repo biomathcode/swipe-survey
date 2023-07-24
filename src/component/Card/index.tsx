@@ -1,8 +1,5 @@
 "use Client";
 
-// TODO: #3 Total Agreeable
-// TODO: #2 Total Disagreable
-
 // TODO: #1 Remove Outliers => Remove the Response of too much agreable and disagreable
 
 import * as Progress from "@radix-ui/react-progress";
@@ -54,7 +51,42 @@ const ResponseTable = ({ data }: { data: any }) => {
   const totalDisAgreeability =
     ((totalResponse - totalYesResponse) / totalResponse) * 100;
 
-  console.log(totalYesResponse, flattenResponse.length);
+  let desired_output = (employees_details: any) => {
+    let unique_values = employees_details
+      .map((item: any) => item.country)
+      .filter(
+        (value: any, index: any, current_value: any) =>
+          current_value.indexOf(value) === index
+      )
+      .filter((n: any) => n);
+    return unique_values;
+  };
+
+  let get_unique_users = (employees_details: any) => {
+    let unique_values = employees_details
+      .map((item: any) => item.byUser)
+      .filter(
+        (value: any, index: any, current_value: any) =>
+          current_value.indexOf(value) === index
+      )
+      .filter((n: any) => n);
+    return unique_values;
+  };
+
+  const unique_users = get_unique_users(flattenResponse);
+  const response_by_users = unique_users.map((el: string, i: number) => {
+    const obj: any = new Object();
+
+    obj[el] = flattenResponse.filter((e: any) => e.byUser === el);
+
+    return obj;
+  });
+
+  console.log("unique", desired_output(flattenResponse));
+
+  console.log("unique users", get_unique_users(flattenResponse));
+
+  console.log("users", response_by_users);
 
   return (
     <div

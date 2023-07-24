@@ -8,20 +8,17 @@
 - [X] Delete Question
 - [X] Improve analytics
 
-- [X] Add React Query
-- [X] Add Zustand    
+- [X] Add React Query (WHY? maybe remove it?)
+- [X] Add Zustand    (WHY? maybe remove it?)
 - [X] Improve the Swiper Com
 - [X] Make the Swiper Component=> Responsive
 - [X] Add Survey Preview with the Surve Builder Page
 - [X] Survey End Page
-
-
-
+- [X] Add Mobile Device Response - in Analytics
+- [X] Add Country Response - in Analytics
 
 ## Priority Work 
-
-- [ ] Add Mobile Device Response - in Analytics
-- [ ] Add Country Response - in Analytics
+ 
 - [ ] Add Filter and Search Option in the analytics
 - [ ] Create a summary of the response 
 - [ ] Improve the Survey Builder

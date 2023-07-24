@@ -20,6 +20,7 @@ import DeleteSurvey from "@/component/DeleteSurvey";
 import { useEffect, useState } from "react";
 import Header from "@/component/Header";
 import { headers } from "next/headers";
+import Image from "next/image";
 
 // TODO: REPLACE LINK TO DIALOG TO CREATE SURVEY
 function Surveys(props) {
@@ -98,8 +99,15 @@ function Surveys(props) {
             </div>
           ))
         ) : (
-          <div className="flex flex-col justify-center gap-10">
+          <div className="flex flex-col justify-center gap-10 items-center content-center">
+            <Image
+              src={"/Calendar.png"}
+              width={400}
+              height={300}
+              alt="Calendar image"
+            />
             <p>No Survey Found </p>
+
             <CreateSurvey />
           </div>
         )}

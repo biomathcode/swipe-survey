@@ -1,9 +1,5 @@
 import { GetServerSideProps } from "next";
 import Swiper from "../../component/Swiper";
-import { headers } from "next/headers";
-import { nanoid } from "nanoid";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 

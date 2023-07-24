@@ -89,8 +89,6 @@ export default function Swiper({ questions, isPreview = true }) {
     }, 1000);
   }
 
-  console.log("User info", user);
-
   return (
     <main
       style={{ width: "50vw", minWidth: "200px" }}

@@ -28,7 +28,7 @@ function App() {
           </Link>
         ) : (
           <button
-            className="px-5 py-3 bg-blue-600 text-white font-bold text-lg "
+            className="px-5 py-3 rounded-sm bg-blue-600 text-white font-bold text-lg "
             onClick={() => signIn()}
           >
             Get Started

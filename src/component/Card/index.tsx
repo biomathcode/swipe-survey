@@ -1,5 +1,10 @@
 "use Client";
 
+// TODO: #3 Total Agreeable
+// TODO: #2 Total Disagreable
+
+// TODO: #1 Remove Outliers => Remove the Response of too much agreable and disagreable
+
 import * as Progress from "@radix-ui/react-progress";
 
 const ProgressBar = ({
@@ -38,12 +43,28 @@ const ResponseTable = ({ data }: { data: any }) => {
 
   const flattenResponse = []?.concat(...responses);
 
+  const totalYesResponse = flattenResponse.filter(
+    (el: any) => el?.value === "true"
+  ).length;
+
+  const totalResponse = flattenResponse.length;
+
+  const totalAgreeability = (totalYesResponse / flattenResponse.length) * 100;
+
+  const totalDisAgreeability =
+    ((totalResponse - totalYesResponse) / totalResponse) * 100;
+
+  console.log(totalYesResponse, flattenResponse.length);
+
   return (
     <div
       style={{ marginBottom: "80px", marginTop: "40px" }}
       className="markdown-body "
     >
       <h1>Responses:</h1>
+      <p>Total Agreeable Response = {totalAgreeability.toFixed(2)}%</p>
+      <p>Total Disagreeable Response = {totalDisAgreeability.toFixed(2)}%</p>
+
       <table>
         <thead>
           <tr>
@@ -75,9 +96,9 @@ const ResponseTable = ({ data }: { data: any }) => {
 
 function AnalyticsCard({ data }: { data: any }) {
   return (
-    <div className="text-black">
-      <h1>{data.title}</h1>
-      <div className="flex flex-col gap-10 align-center">
+    <div className="text-black max-w-2xl">
+      <h1 className="my-4  text-2xl">{data.title}</h1>
+      <div className="flex flex-col gap-10 align-center content-center">
         {data.question.map((el: any, i: any) => {
           const totalResponse = el.Response.length;
           const totalYes = el.Response.filter(
@@ -92,19 +113,25 @@ function AnalyticsCard({ data }: { data: any }) {
           const percentNo = (totalNo / totalResponse) * 100;
 
           return (
-            <div key={el.id} className="flex flex-col gap-4">
+            <div
+              key={el.id}
+              className="flex flex-col gap-4 border border-gray-200 px-6 max-w-lg rounded-lg py-4"
+            >
               <div>
                 {" "}
                 <span>{i + 1}</span>
                 {". " + el.content}
               </div>
               <div className="flex gap-2 items-center content-center">
-                <div>Yes: {totalYes}</div>
+                <div className="text-sm text-gray-600">Yes: {totalYes}</div>
                 <ProgressBar progress={percentYes} />
-                <div>No: {totalNo}</div>
+                <div className="text-sm text-gray-600">No: {totalNo}</div>
               </div>
 
-              <div> Total response: {totalResponse}</div>
+              <div className="text-sm text-gray-600">
+                {" "}
+                Total response: {totalResponse}
+              </div>
             </div>
           );
         })}

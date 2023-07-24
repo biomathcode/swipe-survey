@@ -25,7 +25,7 @@ function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
   return (
     <div className="flex gap-10 my-10 items-center content-center">
       {isEdit ? (
-        <>
+        <div className="flex gap-2">
           <div>{i + 1}</div>
 
           <textarea
@@ -35,7 +35,7 @@ function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
             value={content}
             placeholder="Write your question here"
             name="question"
-            className=" border-b-2 border-gray-400 text-lg outline-none "
+            className=" border-b-2 w-[300px] border-gray-400 text-lg outline-none "
           />
           <button
             aria-label="Save"
@@ -43,18 +43,18 @@ function EditForm({ el, i, popDelete }: { el: any; i: any; popDelete: any }) {
               handleContent();
               setIsEdit(false);
             }}
-            className="px-2 py-1 bg-neutral-800 text-white rounded"
+            className=" bg-neutral-200 text-neutral-900 inline-block h-[35px] px-2 py-1 rounded"
           >
             <FileIcon />
           </button>
-        </>
+        </div>
       ) : (
         <>
-          <div>{i + 1 + ". " + content}</div>
+          <div className="w-[300px]">{i + 1 + ". " + content}</div>
           <button
             aria-label="Edit"
             onClick={() => setIsEdit(true)}
-            className="  inline-block h-[35px] px-[15px] bg-neutral-900 text-white rounded"
+            className="  inline-block h-[30px] px-[8px] bg-neutral-200 text-neutral-900 rounded"
           >
             <Pencil1Icon />
           </button>

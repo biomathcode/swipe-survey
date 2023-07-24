@@ -16,6 +16,7 @@
 - [X] Survey End Page
 - [X] Add Mobile Device Response - in Analytics
 - [X] Add Country Response - in Analytics
+- [X] Added Agreeability and disagreable params 
 
 ## Priority Work 
  
@@ -24,6 +25,8 @@
 - [ ] Improve the Survey Builder
 - [ ] Improve the UI of the Survey Index page
 - [ ] Limit the Question size to 240 words
+- [ ] In Edit Page add Form embed code
+- [ ] 
 
 
 - [ ] Add light and Dark theme 

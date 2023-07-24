@@ -91,7 +91,7 @@ export default function Swiper({ questions, isPreview = true }) {
 
   return (
     <main
-      style={{ width: "50vw", minWidth: "200px" }}
+      style={{ minWidth: "300px" }}
       className="  flex-col items-center justify-between md:p-24 p-4  bg-white text-black "
     >
       <Traffics traffic={traffic} />

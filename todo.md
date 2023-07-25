@@ -17,20 +17,17 @@
 - [X] Add Mobile Device Response - in Analytics
 - [X] Add Country Response - in Analytics
 - [X] Added Agreeability and disagreable params 
+- [X] In Edit Page add Form embed code
+- [X] Improve the UI of the Survey Index page
+- [X] Improve the Survey Builder
+- [X] Add Filter and Search Option in the analytics
+  
 
 ## Priority Work 
  
-- [ ] Add Filter and Search Option in the analytics
 - [ ] Create a summary of the response 
-- [ ] Improve the Survey Builder
-- [ ] Improve the UI of the Survey Index page
 - [ ] Limit the Question size to 240 words
-- [ ] In Edit Page add Form embed code
-- [ ] 
-
-
 - [ ] Add light and Dark theme 
-
 - [ ] Create Library so that people can integrate library on their page or iframe or embed
 - [ ] Try to Add AI for decision making chart
 

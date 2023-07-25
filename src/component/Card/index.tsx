@@ -1,7 +1,5 @@
 "use Client";
 
-// TODO: #1 Remove Outliers => Remove the Response of too much agreable and disagreable
-
 import * as Progress from "@radix-ui/react-progress";
 
 const ProgressBar = ({
@@ -74,19 +72,15 @@ const ResponseTable = ({ data }: { data: any }) => {
   };
 
   const unique_users = get_unique_users(flattenResponse);
-  const response_by_users = unique_users.map((el: string, i: number) => {
+  const response_by_users = () => {
     const obj: any = new Object();
 
-    obj[el] = flattenResponse.filter((e: any) => e.byUser === el);
+    unique_users.map((el: string, i: number) => {
+      obj[el] = flattenResponse.filter((e: any) => e.byUser === el);
+    });
 
     return obj;
-  });
-
-  console.log("unique", desired_output(flattenResponse));
-
-  console.log("unique users", get_unique_users(flattenResponse));
-
-  console.log("users", response_by_users);
+  };
 
   return (
     <div
@@ -103,20 +97,40 @@ const ResponseTable = ({ data }: { data: any }) => {
             <th>ID</th>
             <th>Country</th>
             <th>Device</th>
-            <th>Question</th>
-            <th>Response</th>
+            <th>Total Response</th>
+            <th>Total Yes</th>
+            <th>Total No</th>
           </tr>
         </thead>
         <tbody>
-          {flattenResponse?.map((el: any) => {
-            const device = el?.device?.match(/\(.*?;\s*([^)]+)/)?.[1];
+          {unique_users?.map((el: any, i: any) => {
+            const single_user = response_by_users()[el];
+
+            const length = single_user.length;
+
+            const user = single_user[0];
+
+            console.log("single user", response_by_users()[el]);
+            const device = user?.device?.match(/\(.*?;\s*([^)]+)/)?.[1];
+
+            const totalYes = single_user.filter(
+              (e: any) => e.value === "true"
+            ).length;
+
+            const totalNo = single_user.filter(
+              (e: any) => e.value === "false"
+            ).length;
+
+            const IsOutlier = length === totalYes || length === totalNo;
+
             return (
-              <tr key={el?.id}>
-                <td>{el?.byUser}</td>
-                <td>{el?.country || "🇮🇳"}</td>
+              <tr key={el}>
+                <td>{el}</td>
+                <td>{user?.country || "🇮🇳"}</td>
                 <td className="max-w-xs">{device || "MacOS"}</td>
-                <td>{el?.question}</td>
-                <td>{el?.value}</td>
+                <td>{length}</td>
+                <td>{totalYes}</td>
+                <td>{totalNo}</td>
               </tr>
             );
           })}

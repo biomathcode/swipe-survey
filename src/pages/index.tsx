@@ -36,7 +36,7 @@ function App() {
         )}
 
         <div className="text-center max-w-lg">
-          Swipe Survey helps you create polarized surveys, removes outliers, and
+          Swipe Survey helps you create precise surveys, removes outliers, and
           take decisions without data analysis.
         </div>
         <iframe
@@ -52,22 +52,7 @@ function App() {
         <Features />
 
         <Usecase />
-        {/* <Mermaid>{`
-   graph TD
-   1[Do you struggle with writing effectively?] -->|Yes| 2[Are you aware of the AI bot that helps you write better?]
-   2 -->|Yes| 3[Do you understand how the AI bot works?]
-   3 -->|Yes| 4[Is the AI bot suitable for your writing needs?]
-   4 -->|Yes| 5[Are there any specific writing barriers you face?]
-   5 -->|Yes| 6[Do you have access to the AI bot?]
-   6 -->|Yes| 7[Are you willing to try using the AI bot for writing improvement?]
-   7 -->|Yes| 8[Proceed to use the AI bot to enhance your writing]
-   7 -->|No| 9[Identify the reasons for hesitation and address any concerns before using the AI bot.]
-   6 -->|No| 10[You need to obtain access to the AI bot for writing improvement.]
-   5 -->|No| 11[You may need to explore alternative solutions for writing improvement.]
-   4 -->|No| 12[You need more information about how the AI bot can assist you.]
-   3 -->|No| 13[You need to learn about the AI bot for writing improvement.]
-   2 -->|No| 14[You may not need the AI bot for writing improvement.]
-  `}</Mermaid> */}
+
         <Footer />
       </div>
     </>

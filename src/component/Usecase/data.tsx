@@ -3,7 +3,7 @@ const data = [
     id: 1,
     header: "Startup",
     description:
-      "Get insights of your data, remove outliers and get a proper path to your hypothesis",
+      "Surveys are frequent and users are much more likely to give imprecise answers.  ",
   },
   {
     id: 2,
@@ -21,11 +21,11 @@ const data = [
     id: 4,
     header: "Decision Validation",
     description:
-      "Decision Validation Services is designed for developers, QA teams, and business users to create testing and simulation solutions based on a number of use cases and scenarios",
+      "Decision Validation Services is designed for developers, QA teams, and business users to create testing",
   },
   {
     id: 5,
-    header: "S ",
+    header: "Avoid The Mom Test ",
     description: "It's simple to create, collect and get conclusive data.  ",
   },
   {

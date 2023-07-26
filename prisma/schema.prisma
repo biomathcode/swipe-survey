@@ -39,6 +39,8 @@ model Response {
   country    String?
   timezone   String?
   device     String?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @default(now()) @updatedAt
 }
 
 model Account {

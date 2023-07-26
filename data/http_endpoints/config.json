@@ -1,0 +1,342 @@
+[
+  {
+    "name": "Response",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/Response",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/GET-Response.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-User",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/User",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/GET-User.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-Question",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/Question",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/GET-Question.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-Question",
+    "description": "",
+    "method": "POST",
+    "endpoint": "/Question",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "createdAt",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "updatedAt",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "surveyId",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 1
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/POST-Question.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-Question",
+    "description": "",
+    "method": "PUT",
+    "endpoint": "/Question",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "createdAt",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "updatedAt",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "surveyId",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 1
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/PUT-Question.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-Question",
+    "description": "",
+    "method": "DELETE",
+    "endpoint": "/Question",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 1
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/DELETE-Question.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-Survey",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/Survey",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/GET-Survey.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-Survey",
+    "description": "",
+    "method": "POST",
+    "endpoint": "/Survey",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "createdAt",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "updatedAt",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 1
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/POST-Survey.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-Survey",
+    "description": "",
+    "method": "PUT",
+    "endpoint": "/Survey",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      },
+      {
+        "name": "createdAt",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "updatedAt",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 1
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/PUT-Survey.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "-Survey",
+    "description": "",
+    "method": "DELETE",
+    "endpoint": "/Survey",
+    "data_source": {
+      "cluster_id": 1379661944646167521
+    },
+    "params": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": 1,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 1
+    },
+    "tag": "Default",
+    "batch_operation": 0,
+    "sql_file": "sql/DELETE-Survey.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  }
+]

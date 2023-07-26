@@ -5,4 +5,4 @@ Declare a parameter like "Where id = ${arg}".
 */
 use test;
 
-SELECT COUNT(id) from `Response`;
+SELECT (SELECT COUNT(id) from `Response` ) AS responses, (SELECT COUNT(id) from `User`) AS users, (SELECT COUNT(id) from `Survey`) AS surveys, (SELECT COUNT(id) from `Question`) AS questions from DUAL;

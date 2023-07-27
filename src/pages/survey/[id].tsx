@@ -7,21 +7,21 @@ function SurveyView(props: any) {
   return (
     <>
       <Head>
-        <title>{props.data.title}</title>
+        <title>{props.data?.title}</title>
       </Head>
+      <div className="text-center w-full">
+        <h1 className="text-md md:text-2xl">{props.data?.title}</h1>
+      </div>
       <div
         title="surveyView"
-        className="flex flex-col mt-20 sm:mt-20 text-center md:mt-10 justify-start items-start content-start md:justify-center md:items-center  md:content-center "
+        className="flex flex-col mt-20 sm:mt-20 text-center md:mt-10 justify-center items-center content-center sm:justify-center sm:items-center sm:content-center md:justify-center md:items-center  md:content-center "
         style={{
           width: "100vw",
           height: "calc(100vh - 100px)",
         }}
       >
-        <div className="text-center w-full">
-          <h1 className="text-md md:text-2xl">{props.data.title}</h1>
-        </div>
-        <Swiper questions={props.data.question} isPreview={false} />
-        <div style={{ position: "fixed", bottom: "10px" }}>
+        <Swiper questions={props.data?.question} isPreview={false} />
+        <div style={{ position: "fixed", bottom: "10px", width: "100vw" }}>
           Powered by{" "}
           <Link
             target="_blank"

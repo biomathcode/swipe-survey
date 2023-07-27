@@ -2,6 +2,7 @@ import Features from "@/component/Features";
 import Footer from "@/component/Footer";
 import Header from "@/component/Header";
 import { Mermaid } from "@/component/MermaidChart";
+import Templates from "@/component/Template";
 import Usecase from "@/component/Usecase";
 
 import { signIn, useSession } from "next-auth/react";
@@ -104,6 +105,7 @@ graph LR
             alt="Demo of how swipe survey works "
           />
         </div>
+        <Templates />
 
         <Footer />
       </div>

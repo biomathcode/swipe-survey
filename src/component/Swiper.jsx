@@ -17,7 +17,7 @@ const Wrapper = styled(Stack)`
   box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.25);
   margin: 10px;
   min-height: 300px;
-  min-width: 300px;
+  min-width: 320px;
 `;
 
 const Item = styled.div`
@@ -29,7 +29,7 @@ const Item = styled.div`
   cursor: grab;
 
   padding: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   background: #f8f8f8;
   color: #000000;
   border-radius: 8px;
@@ -92,7 +92,7 @@ export default function Swiper({ questions, isPreview = true }) {
   return (
     <main
       style={{ minWidth: "300px" }}
-      className="  flex-col items-center justify-between md:p-24 p-4  bg-white text-black "
+      className="  flex-col items-center content-center justify-between md:p-24 p-4  bg-white text-black "
     >
       <Traffics traffic={traffic} />
 
@@ -126,7 +126,7 @@ export default function Swiper({ questions, isPreview = true }) {
       >
         {questions?.map((el) => (
           <Item
-            className="text-lg md:text-2xl"
+            className="text-md md:text-lg lg:text-lg"
             borderColor={previous}
             data-value={el.id}
             whileTap={{ scale: 1.15 }}

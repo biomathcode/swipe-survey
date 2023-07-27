@@ -10,7 +10,7 @@ const Card = ({ header, description }: CardTypes) => {
     <div
       title="card"
       style={{ maxWidth: "340px" }}
-      className="transition-colors	 flex  h-fit md:p-10 p-4 flex-col gap-2 hover:bg-neutral-900 hover:text-white bg-white text-neutral-900"
+      className="transition-colors	 flex  h-fit md:p-10 p-4 flex-col gap-2 hover:bg-blue-900 hover:text-white bg-white text-neutral-900"
     >
       <h2 className="text-2xl">{header}</h2>
       <p>{description}</p>

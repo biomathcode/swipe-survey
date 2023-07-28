@@ -18,7 +18,7 @@ function QuestionForm({
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
 
   const { data: session } = useSession();
@@ -55,9 +55,9 @@ function QuestionForm({
       {errors.content && <p>Last name is required.</p>}
 
       <input
-        // disabled
+        disabled={isSubmitting}
         type="submit"
-        value="Submit"
+        value={isSubmitting ? "Loading..." : "Submit"}
         className="flex  gap-2 text-sm justify-center items-center bg-neutral-900 rounded text-white px-3 py-2"
       />
     </form>

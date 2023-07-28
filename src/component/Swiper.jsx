@@ -102,7 +102,6 @@ export default function Swiper({ questions, isPreview = true }) {
         setTraffic={setTraffic}
         blink={blink}
         onVote={async (item, vote) => {
-          console.log(user);
           if (!isPreview) {
             const body = {
               questionId: item.props["data-value"],
@@ -120,7 +119,6 @@ export default function Swiper({ questions, isPreview = true }) {
             });
 
             const res = await createResponse.json();
-            console.log(res);
           }
         }}
       >

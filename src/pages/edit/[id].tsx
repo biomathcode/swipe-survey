@@ -1,7 +1,7 @@
 // TODO: Add Preview
 
 import QuestionForm from "@/component/QuestionForm";
-import { useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { GetServerSideProps } from "next";
 import EditForm from "@/component/EditForm";
 import Swiper from "@/component/Swiper";
@@ -9,6 +9,46 @@ import Link from "next/link";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import Header from "@/component/Header";
+
+function Preview({
+  data,
+  id,
+  title,
+}: {
+  data: any;
+  id: string;
+  title: string;
+}) {
+  const [toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    console.log("this is called");
+    setToggle(true);
+    setTimeout(() => {
+      setToggle(false);
+    }, 1000);
+  }, [data]);
+
+  return (
+    <div className="flex flex-col gap-0 items-center max-w-lg content-center">
+      <Link target="_blank" href={"/survey/" + id}>
+        <div className="flex mt-4 justify-around w-full gap-10 items-center content-center">
+          <h1 className="text-2xl font-bold text-center">Preview</h1>
+
+          <ExternalLinkIcon />
+        </div>
+      </Link>
+      {!toggle && <Swiper questions={data} isPreview={true} />}
+
+      <div className="markdown-body max-w-lg">
+        <h3>Embed Code</h3>
+        <div className="bg-gray-200 p-3 rounded-lg text-[14px]">
+          {`<iframe style={{ width: "100%", height: "700px" }} src="https://swipe-survey.vercel.app/survey/${id}"  title="${data.title}"></iframe>`}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Edit(props: any) {
   console.log("this", props);
@@ -47,22 +87,8 @@ function Edit(props: any) {
             ))}
           </div>
         </div>
-        <div className="flex flex-col gap-0 items-center max-w-lg content-center">
-          <Link target="_blank" href={"/survey/" + props.data.id}>
-            <div className="flex mt-4 justify-around w-full">
-              <h1 className="text-2xl font-bold text-center">Preview</h1>
 
-              <ExternalLinkIcon />
-            </div>
-          </Link>
-          <Swiper questions={data} isPreview={true} />
-          <div className="markdown-body max-w-lg">
-            <h3>Embed Code</h3>
-            <div className="bg-gray-200 p-3 rounded-lg text-[14px]">
-              {`<iframe style={{ width: "100%", height: "700px" }} src="https://swipe-survey.vercel.app/survey/${props.data.id}"  title="${props.data.title}"></iframe>`}
-            </div>
-          </div>
-        </div>
+        <Preview data={data} id={props.data.id} title={props.data.title} />
       </div>
     </>
   );

@@ -56,22 +56,24 @@ function Surveys(props) {
             <div
               key={el.id}
               style={{ minWidth: "300px" }}
-              className="p-2 w-md  bg-white border border-gray-200 rounded-lg shadow flex flex-col gap-10 justify-between "
+              className="p-4 w-md  bg-white border border-gray-200 rounded-lg shadow flex flex-col mt-3 gap-2 justify-between "
             >
               <div
                 style={{ minWidth: "300px" }}
                 className="p-2 w-md   flex gap-2 justify-between "
               >
-                <div className="flex gap-4 justify-start items-center">
+                <div className="flex gap-4 justify-start font-bold items-center">
                   <div>{el.title}</div>
-                  <div>Question: {el.question.length}</div>
-                  <div>Response: {el.question[0]?.Response?.length} </div>
                 </div>
                 <div className="text-sm text-neutral-400 flex items-end justify-end">
                   {formatDistance(new Date(el.createdAt), new Date(), {
                     addSuffix: true,
                   })}
                 </div>
+              </div>
+              <div className="flex gap-2 text-sm text-neutral-500">
+                <div>Question: {el.question.length}</div>
+                <div>Response: {el.question[0]?.Response?.length} </div>
               </div>
 
               <div className="flex justify-around gap-2">

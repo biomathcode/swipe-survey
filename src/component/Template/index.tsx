@@ -4,7 +4,7 @@ import data from "./data";
 type CardTypes = {
   header: string;
   description: string;
-  id: number;
+  id: string;
 };
 
 const Card = ({ header, description, id }: CardTypes) => {
@@ -49,7 +49,7 @@ function Templates() {
           <Card
             key={el.id}
             header={el.header}
-            id={el.id}
+            id={el.link}
             description={el.description}
           />
         ))}

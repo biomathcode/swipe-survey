@@ -13,7 +13,7 @@ function DeleteSurvey({ id, popSurvey }: DeleteType) {
 
   const handleDeleteSurvey = async () => {
     setLoading(true);
-    const res = await axios.delete("http://localhost:3000/api/survey/" + id);
+    const res = await axios.delete("/api/survey/" + id);
 
     if (res.status === 200) {
       popSurvey(id);

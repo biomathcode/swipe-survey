@@ -22,7 +22,7 @@ function CreateSurvey() {
       return console.log("Please login");
     }
 
-    const create = await axios.post("http://localhost:3000/api/survey", {
+    const create = await axios.post("/api/survey", {
       title: title,
       email: session.user?.email,
     });

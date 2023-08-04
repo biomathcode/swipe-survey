@@ -26,7 +26,7 @@ function DeleteSurvey({ id, popSurvey }: DeleteType) {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="text-violet11 bg-neutral-900 gap-2 text-white hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px]  px-[15px] font-medium leading-none  focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
+        <button className="text-violet11 bg-neutral-900 gap-2 text-sm text-white hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px]  px-[15px]  leading-none  focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
           <TrashIcon /> Delete
         </button>
       </Dialog.Trigger>

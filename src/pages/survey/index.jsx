@@ -62,9 +62,14 @@ function Surveys(props) {
                 style={{ minWidth: "300px" }}
                 className="p-2 w-md   flex gap-2 justify-between "
               >
-                <div className="flex gap-4 justify-start font-bold items-center">
+                <Link
+                  target="_blank"
+                  href={"/survey/" + el.id}
+                  className="flex gap-4 justify-start font-bold items-center"
+                >
                   <div>{el.title}</div>
-                </div>
+                  <ExternalLinkIcon />
+                </Link>
                 <div className="text-sm text-neutral-400 flex items-end justify-end">
                   {formatDistance(new Date(el.createdAt), new Date(), {
                     addSuffix: true,

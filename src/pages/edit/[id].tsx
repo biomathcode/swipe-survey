@@ -3,6 +3,7 @@
 import QuestionForm from "@/component/QuestionForm";
 import { useEffect, useReducer, useRef, useState } from "react";
 import { GetServerSideProps } from "next";
+import CopyButton from "@/component/CopyButton";
 import EditForm from "@/component/EditForm";
 import Swiper from "@/component/Swiper";
 import Link from "next/link";
@@ -33,7 +34,7 @@ function Preview({
     <div className="flex flex-col gap-0 items-center max-w-lg content-center">
       <Link target="_blank" href={"/survey/" + id}>
         <div className="flex mt-4 justify-around w-full gap-10 items-center content-center">
-          <h1 className="text-2xl font-bold text-center">Preview</h1>
+          <h1 className="text-lg font-bold text-center">Preview</h1>
 
           <ExternalLinkIcon />
         </div>
@@ -41,10 +42,14 @@ function Preview({
       {!toggle && <Swiper questions={data} isPreview={true} />}
 
       <div className="markdown-body max-w-lg">
-        <h3>Embed Code</h3>
-        <div className="bg-gray-200 p-3 rounded-lg text-[14px]">
-          {`<iframe style={{ width: "100%", height: "700px" }} src="https://swipe-survey.vercel.app/survey/${id}"  title="${data.title}"></iframe>`}
-        </div>
+        <div>Share Link</div>
+        <CopyButton link={`https://swipe-survey.vercel.app/survey/${id}`} />
+
+        <div>Embed Code</div>
+
+        <CopyButton
+          link={`<iframe style={{ width: "100%", height: "700px" }} src="https://swipe-survey.vercel.app/survey/${id}"  title="${data.title}"></iframe>`}
+        />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ import Chat from "./Chat";
 
 type AIWidgetType = {};
 
-function AIWidgetQuestion() {
+function AIWidgetQuestion({ setQuestions }: { setQuestions: any }) {
   const [loading, setLoading] = useState(false);
 
   const handleAIWidgetQuestion = async () => {

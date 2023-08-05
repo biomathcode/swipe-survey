@@ -84,7 +84,7 @@ function Edit(props: any) {
             </div>
             <div>
               Use Our AI Builder :
-              <AIWidgetQuestion />
+              <AIWidgetQuestion setQuestions={setData} />
             </div>
             <QuestionForm
               surveyid={props.data.id}

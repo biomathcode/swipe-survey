@@ -51,73 +51,77 @@ function Surveys(props) {
           <CreateSurvey />
         </div>
         <hr style={{ width: "100vw" }} />
-        {data?.length > 0 ? (
-          data?.map((el) => (
-            <div
-              key={el.id}
-              style={{ minWidth: "300px" }}
-              className="p-4 w-md  bg-white border border-gray-200 rounded-lg shadow flex flex-col mt-3 gap-2 justify-between "
-            >
-              <div
-                style={{ minWidth: "300px" }}
-                className="p-2 w-md   flex gap-2 justify-between "
-              >
-                <Link
-                  target="_blank"
-                  href={"/survey/" + el.id}
-                  className="flex gap-4 justify-start font-bold items-center"
+        <div className="w-full p-10 flex justify-center items-center content-center">
+          <div className="md:flex flex-wrap ">
+            {data?.length > 0 ? (
+              data?.map((el) => (
+                <div
+                  key={el.id}
+                  style={{ minWidth: "300px" }}
+                  className="p-4 w-md md:m-10 bg-white border border-gray-200 rounded-lg shadow flex flex-col mt-3 gap-2 justify-between "
                 >
-                  <div>{el.title}</div>
-                  <ExternalLinkIcon />
-                </Link>
-                <div className="text-sm text-neutral-400 flex items-end justify-end">
-                  {formatDistance(new Date(el.createdAt), new Date(), {
-                    addSuffix: true,
-                  })}
+                  <div
+                    style={{ minWidth: "300px" }}
+                    className="p-2 w-md   flex gap-2 justify-between "
+                  >
+                    <Link
+                      target="_blank"
+                      href={"/survey/" + el.id}
+                      className="flex gap-4 justify-start font-bold items-center"
+                    >
+                      <div>{el.title}</div>
+                      <ExternalLinkIcon />
+                    </Link>
+                    <div className="text-sm text-neutral-400 flex items-end justify-end">
+                      {formatDistance(new Date(el.createdAt), new Date(), {
+                        addSuffix: true,
+                      })}
+                    </div>
+                  </div>
+                  <div className="flex gap-2 text-sm text-neutral-500">
+                    <div>Question: {el.question.length}</div>
+                    <div>Response: {el.question[0]?.Response?.length} </div>
+                  </div>
+
+                  <div className="flex justify-around gap-2">
+                    <button
+                      onClick={() => {
+                        router.push("/analytics/" + el.id);
+                      }}
+                      className="bg-neutral-900 text-white px-3 text-sm rounded py-2 flex gap-2 items-center justify-center"
+                    >
+                      <PieChartIcon />
+                      Analytics
+                    </button>
+                    <button
+                      onClick={() => {
+                        router.push("/edit/" + el.id);
+                      }}
+                      className=" bg-neutral-900 text-white px-3 rounded py-2 text-sm flex gap-2 items-center justify-center"
+                    >
+                      <Pencil1Icon />
+                      Edit
+                    </button>
+
+                    <DeleteSurvey id={el.id} popSurvey={popDelete} />
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-2 text-sm text-neutral-500">
-                <div>Question: {el.question.length}</div>
-                <div>Response: {el.question[0]?.Response?.length} </div>
-              </div>
+              ))
+            ) : (
+              <div className="flex flex-col justify-center gap-10 items-center content-center">
+                <Image
+                  src={"/Calendar.png"}
+                  width={400}
+                  height={300}
+                  alt="Calendar image"
+                />
+                <p>No Survey Found </p>
 
-              <div className="flex justify-around gap-2">
-                <button
-                  onClick={() => {
-                    router.push("/analytics/" + el.id);
-                  }}
-                  className="bg-neutral-900 text-white px-3 text-sm rounded py-2 flex gap-2 items-center justify-center"
-                >
-                  <PieChartIcon />
-                  Analytics
-                </button>
-                <button
-                  onClick={() => {
-                    router.push("/edit/" + el.id);
-                  }}
-                  className=" bg-neutral-900 text-white px-3 rounded py-2 text-sm flex gap-2 items-center justify-center"
-                >
-                  <Pencil1Icon />
-                  Edit
-                </button>
-
-                <DeleteSurvey id={el.id} popSurvey={popDelete} />
+                <CreateSurvey />
               </div>
-            </div>
-          ))
-        ) : (
-          <div className="flex flex-col justify-center gap-10 items-center content-center">
-            <Image
-              src={"/Calendar.png"}
-              width={400}
-              height={300}
-              alt="Calendar image"
-            />
-            <p>No Survey Found </p>
-
-            <CreateSurvey />
+            )}
           </div>
-        )}
+        </div>
       </div>
     </>
   );

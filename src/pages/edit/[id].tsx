@@ -10,6 +10,7 @@ import Link from "next/link";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import Header from "@/component/Header";
+import AIWidgetQuestion from "@/component/AIWidget";
 
 function Preview({
   data,
@@ -78,9 +79,13 @@ function Edit(props: any) {
           className="flex w-[340px] sm:w-[400px] min-w-full md:min-w-fit md:w-[500px] lg:w-[700px]   justify-start   content-center"
         >
           <div className="flex flex-col justify-start max-w-lg ">
-            <h1 className="text-6xl border-b-2 border-gray-600">
+            <div className="text-6xl border-b-2 border-gray-600">
               {props.data.title}
-            </h1>
+            </div>
+            <div>
+              Use Our AI Builder :
+              <AIWidgetQuestion />
+            </div>
             <QuestionForm
               surveyid={props.data.id}
               data={data}

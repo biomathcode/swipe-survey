@@ -1,7 +1,3 @@
-// Get the Question
-// Put to udpate a question
-// delete to delete question
-
 import prisma from "lib/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
 

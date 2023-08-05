@@ -14,6 +14,9 @@ export default async function POST(req: Request) {
   // Get the prompt from the request body
   const { messages } = await req.json();
 
+  messages.content =
+    messages.content +
+    " .Create question with Yes or No, and should be numbered.Add new line character for questions.Create Short Questions. List the Questions only. No introduction. No Conclusion paragraphs";
   const response = await replicate.predictions.create({
     // You must enable streaming.
     stream: true,

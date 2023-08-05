@@ -7,10 +7,10 @@ function SurveyView(props: any) {
   return (
     <>
       <Head>
-        <title>{props.data?.title}</title>
+        <title>{props?.data?.title}</title>
       </Head>
       <div className="text-center w-full">
-        <h1 className="text-md md:text-2xl">{props.data?.title}</h1>
+        <h1 className="text-md md:text-2xl">{props?.data?.title}</h1>
       </div>
       <div
         title="surveyView"
@@ -20,7 +20,11 @@ function SurveyView(props: any) {
           height: "calc(100vh - 100px)",
         }}
       >
-        <Swiper questions={props.data?.question} isPreview={false} />
+        {
+          props?.data && 
+          <Swiper questions={props.data?.question} isPreview={false} />
+
+        }
         <div style={{ position: "fixed", bottom: "10px", width: "100vw" }}>
           Powered by{" "}
           <Link

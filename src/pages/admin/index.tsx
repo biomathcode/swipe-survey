@@ -12,6 +12,7 @@ import {
   PersonIcon,
   PieChartIcon,
 } from "@radix-ui/react-icons";
+import data from "@/component/Features/data";
 
 type CounterType = "responses" | "questions" | "users" | "surveys";
 
@@ -28,12 +29,16 @@ const StatsDisplay = () => {
   }, []);
 
   async function fetchData() {
-    const response = await axios.get("/api/admin");
+    try {
+      const response = await axios.get("/api/admin");
 
-    console.log(response.data);
+      console.log(response.data);
 
-    setCounter(response.data.data.rows[0]);
-    return response.data;
+      setCounter(response.data.data.rows[0]);
+      return response.data;
+    } catch (e) {
+      console.log("something went wrong");
+    }
   }
 
   const Icon = {
@@ -43,14 +48,14 @@ const StatsDisplay = () => {
     questions: <DashboardIcon />,
   };
 
-  return Object.keys(count).map((el, i) => (
+  return Object.keys(count)?.map((el, i) => (
     <div
       key={i}
       className="rounded-xl border bg-card text-card-foreground shadow"
     >
       <div className="p-6 flex flex-row gap-4 items-center justify-between space-y-0 pb-2">
         <h3 className="tracking-tight text-sm font-medium">
-          {el.toUpperCase()}:
+          {el?.toUpperCase()}:
         </h3>
         <div className="h-4 w-4 text-muted-foreground">
           {Icon[el as keyof typeof Icon]}
@@ -76,6 +81,28 @@ function AdminPortal() {
           <StatsDisplay />
         </div>
       </div>
+    </>
+  );
+}
+
+function UserTable({ data }: { data: any }) {
+  const { ID, name, email, image } = data;
+  return (
+    <>
+      <h1>Users: </h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>email</th>
+            <th>
+              <img src={image} width={50} height={50} />
+            </th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </>
   );
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Stack } from "./component/stack";
@@ -6,6 +8,13 @@ import { Traffics } from "./component/Traffic";
 import { useSession } from "next-auth/react";
 import { nanoid } from "nanoid";
 import axios from "axios";
+
+const Progress = ({ count, doneCount }) => {
+  console.log("progress", count, doneCount);
+  return (
+    <div className="bg-gray-200 w-5 h-5 relative bottom-2 z-2">{count}</div>
+  );
+};
 
 const Wrapper = styled(Stack)`
   background: #fff;
@@ -42,6 +51,10 @@ export default function Swiper({ questions, isPreview = true }) {
   const [traffic, setTraffic] = useState(["red", "yellow", "green"]);
 
   const [previous, setPrevious] = useState("#f4f4f4");
+
+  const totalCount = questions.length;
+
+  let [doneCount, setDoneCount] = useState(0);
 
   const [user, setUser] = useState({
     ip: "",
@@ -120,6 +133,7 @@ export default function Swiper({ questions, isPreview = true }) {
 
             const res = await createResponse.json();
           }
+          setDoneCount((e) => e + 1);
         }}
       >
         {questions?.map((el) => (

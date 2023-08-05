@@ -28,19 +28,41 @@ async function question(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     const { content, surveyId, email } = req.body;
 
-    const createQuestion = await prisma.question.create({
-      data: {
-        content: content,
-        createdAt: new Date(),
-        surveyId: surveyId,
-        email: email,
-      },
-    });
+    if (typeof content === "string") {
+      const createQuestion = await prisma.question.create({
+        data: {
+          content: content,
+          createdAt: new Date(),
+          surveyId: surveyId,
+          email: email,
+        },
+      });
 
-    return res.status(200).json({
-      data: createQuestion,
-      msg: "ALL the Question",
-    });
+      return res.status(200).json({
+        data: createQuestion,
+        msg: "ALL the Question",
+      });
+    }
+
+    if (typeof content === "object") {
+      const manycontent = content.map((el: any) => {
+        return {
+          content: el,
+          createdAt: new Date(),
+          surveyId,
+          email,
+        };
+      });
+      const createQuestion = await prisma.question.createMany({
+        data: manycontent,
+        skipDuplicates: true,
+      });
+
+      return res.status(200).json({
+        data: createQuestion,
+        msg: "Created Multiple the Question",
+      });
+    }
   } else {
     return res.status(401).json({
       message: `HTTP method ${req.method} is not supported.`,

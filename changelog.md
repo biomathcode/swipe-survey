@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [0.1.2] - 2023-08-06
+
+### Added
+- AI Chat To Query
+- AIWizard Builder to quickly build questions
+
+
+## Fix: 
+- Dialog overlay styles
+- Few Styles fixes
+
+
+
 ## [0.1.1] - 2023-07-19
 
 ### Added

@@ -51,6 +51,10 @@ export default function AITable() {
       </form>
       {isSubmitting && <div>LOADING...</div>}
 
+      {data?.data?.result?.code !== 200 && (
+        <p>Please Change the Prompt to get better Results. </p>
+      )}
+
       <table className="max-w-md">
         <thead>
           <tr>

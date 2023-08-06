@@ -18,7 +18,8 @@ function CopyButton({ link }: CopyButtonType) {
   return (
     <div className="flex gap-2">
       <input
-        value={link}
+        defaultValue={link}
+        readOnly
         className="shadow w-96 appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         id="username"
         type="text"

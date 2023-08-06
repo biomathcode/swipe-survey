@@ -83,7 +83,7 @@ function Edit(props: any) {
               {props.data.title}
             </div>
             <div>
-              Use Our AI Builder :
+              Use Our AI Builder[BETA] :
               <AIWidgetQuestion setQuestions={setData} />
             </div>
             <QuestionForm

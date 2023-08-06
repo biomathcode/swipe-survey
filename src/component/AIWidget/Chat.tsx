@@ -51,6 +51,10 @@ export default function Chat({ setQuestions }: { setQuestions: any }) {
 
   return (
     <div className="mx-auto w-full max-w-md  flex flex-col stretch">
+      <p className="text-sm text-neutral-600 max-w-sm my-4">
+        We are using replicate Free Tiar, So the Feature might not work due to
+        free tiar getting expired
+      </p>
       <form
         onSubmit={handleSubmit}
         className="flex gap-2 w-full min-w-full content-center items-center"

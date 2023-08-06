@@ -4,7 +4,7 @@ import axios from "axios";
 
 // run example
 // get User by email=sharma.pratik2016@gmail.com
-// get Response with all columns where value = false
+// get Response with all columns where value = 'false'
 // Count Response where Country = India
 //
 

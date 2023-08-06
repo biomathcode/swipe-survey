@@ -9,14 +9,18 @@ function ChangeLogs() {
         className="markdown-body"
         style={{ width: "100vw", padding: "20px 20vw", marginBottom: "80px" }}
       >
-        <h1
-          style={{
-            background: "white",
-          }}
-          id="changelog"
-        >
-          Changelog
-        </h1>
+        <h1 id="changelog">Changelog</h1>
+        <h2 id="-0-1-2-2023-08-06">[0.1.2] - 2023-08-06</h2>
+        <h3 id="added">Added</h3>
+        <ul>
+          <li>AI Chat To Query</li>
+          <li>AIWizard Builder to quickly build questions</li>
+        </ul>
+        <h2 id="fix-">Fix:</h2>
+        <ul>
+          <li>Dialog overlay styles</li>
+          <li>Few Styles fixes</li>
+        </ul>
         <h2 id="-0-1-1-2023-07-19">[0.1.1] - 2023-07-19</h2>
         <h3 id="added">Added</h3>
         <ul>
@@ -25,7 +29,7 @@ function ChangeLogs() {
         </ul>
         <h3 id="future-changes">Future Changes</h3>
         <ul>
-          <li>We will not collect emails.</li>
+          <li>We will not collect emails. </li>
           <li>We are moving towards complete anonymous</li>
           <li>We will collect data like device, country only</li>
         </ul>

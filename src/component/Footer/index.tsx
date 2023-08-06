@@ -29,10 +29,28 @@ function Footer() {
           <li>
             <a
               target="_blank"
-              href="https://twitter.com/biomathcode"
+              href="https://twitter.com/biomathcode mr-4"
               className="hover:underline"
             >
               Created By biomathcode
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://vercel.com"
+              className="hover:underline ml-4"
+            >
+              Deployed on ▲ Vercel
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://tidbcloud.com/"
+              className="hover:underline ml-4"
+            >
+              Powered by TiDB
             </a>
           </li>
         </ul>

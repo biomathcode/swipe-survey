@@ -30,7 +30,7 @@ export default function AITable() {
   };
 
   return (
-    <div className="markdown-body ">
+    <div className="markdown-body  ">
       <h1 className="my-4  text-2xl">AI Query</h1>
 
       <form className="flex gap-2 my-5" onSubmit={handleSubmit(onSubmit)}>
@@ -51,9 +51,10 @@ export default function AITable() {
       </form>
       {isSubmitting && <div>LOADING...</div>}
 
-      {data?.data?.result?.code !== 200 && (
-        <p>Please Change the Prompt to get better Results. </p>
-      )}
+      <p className="max-w-md text-sm text-slate-500">
+        Consider using User, Response, Survey and Question to get better
+        results. As this are table name and will give you better results.
+      </p>
 
       <table className="max-w-md">
         <thead>

@@ -31,7 +31,7 @@ const ProgressBar = ({
   );
 };
 
-const ResponseTable = ({ data }: { data: any }) => {
+export const ResponseTable = ({ data }: { data: any }) => {
   const responses = data?.question.map((el: any) =>
     el?.Response.map((e: any) => ({ ...e, question: el.content }))
   );
@@ -182,7 +182,6 @@ function AnalyticsCard({ data }: { data: any }) {
           );
         })}
       </div>
-      <ResponseTable data={data} />
     </div>
   );
 }

@@ -5,7 +5,7 @@
 // TODO: See Response by User
 import { GetServerSideProps } from "next";
 
-import AnalyticsCard from "@/component/Card";
+import AnalyticsCard, { ResponseTable } from "@/component/Card";
 import Header from "@/component/Header";
 import Separator from "@/component/Separator";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
@@ -26,9 +26,10 @@ function Analytics(props: any) {
         </Link>
       </div>
       <Separator />
-      <AITable />
-
       <AnalyticsCard data={props.data} />
+
+      <AITable />
+      <ResponseTable data={props.data} />
     </>
   );
 }

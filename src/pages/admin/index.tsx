@@ -13,6 +13,7 @@ import {
   PieChartIcon,
 } from "@radix-ui/react-icons";
 import data from "@/component/Features/data";
+import AITable from "@/component/AITable";
 
 type CounterType = "responses" | "questions" | "users" | "surveys";
 
@@ -74,35 +75,14 @@ function AdminPortal() {
   return (
     <>
       <Header />
-      <div className="flex flex-col mt-10 gap-4">
+      <div className="flex flex-col mt-10 gap-4 mb-10">
         <div className="text-3xl font-bold tracking-tight">Admin Portal</div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <StatsDisplay />
         </div>
       </div>
-    </>
-  );
-}
-
-function UserTable({ data }: { data: any }) {
-  const { ID, name, email, image } = data;
-  return (
-    <>
-      <h1>Users: </h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>name</th>
-            <th>email</th>
-            <th>
-              <img src={image} width={50} height={50} />
-            </th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <AITable />
     </>
   );
 }

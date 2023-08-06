@@ -142,7 +142,7 @@ const ResponseTable = ({ data }: { data: any }) => {
 
 function AnalyticsCard({ data }: { data: any }) {
   return (
-    <div className="text-black max-w-2xl">
+    <div className="text-black max-w-2xl mb-20">
       <h1 className="my-4  text-2xl">{data.title}</h1>
       <div className="flex flex-col gap-10 align-center content-center">
         {data.question.map((el: any, i: any) => {

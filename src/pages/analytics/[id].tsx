@@ -11,9 +11,7 @@ import Separator from "@/component/Separator";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
-import AITable from '@/component/AITable'
-
-
+import AITable from "@/component/AITable";
 
 function Analytics(props: any) {
   console.log(props);
@@ -28,9 +26,9 @@ function Analytics(props: any) {
         </Link>
       </div>
       <Separator />
+      <AITable />
 
       <AnalyticsCard data={props.data} />
-      <AITable />
     </>
   );
 }
